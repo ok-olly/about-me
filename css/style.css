@@ -1,0 +1,57 @@
+/* 
+color-green : #D7E9B9;
+color-yellow: #FFFBAC;
+color-salmon: #FFD495;
+color-orange: #FAAB78;
+color-brown: #58391C;
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+  padding: 10px;
+}
+
+.header {
+  height: 90vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(250, 171, 120, 0.7),
+      rgba(255, 251, 172, 0.7)
+    ),
+    url(../img/brighton.jpeg);
+  background-position: center;
+  background-size: cover;
+
+  position: relative;
+}
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-1 {
+  font-size: 70px;
+  letter-spacing: 47px;
+  margin-right: -47px;
+  text-shadow: 3px -3px blanchedalmond;
+}
+
+.heading-3 {
+  font-size: 33px;
+  letter-spacing: 5px;
+  margin-right: -5px;
+  text-shadow: 3px -3px blanchedalmond;
+}
