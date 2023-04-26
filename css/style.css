@@ -6,19 +6,26 @@ color-orange: #FAAB78;
 color-brown: #58391C;
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: "Nanum Gothic", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.6;
   color: #000;
-  padding: 10px;
+  padding: 1rem;
+
+  box-sizing: border-box;
 }
 
 .header {
@@ -35,7 +42,7 @@ body {
   position: relative;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -44,30 +51,30 @@ body {
 }
 
 .heading-1 {
-  font-size: 70px;
-  letter-spacing: 47px;
-  margin-right: -47px;
-  text-shadow: 3px -3px #fff;
+  font-size: 7rem;
+  letter-spacing: 4.7rem;
+  margin-right: -4.7rem;
+  text-shadow: 0.3rem -0.3rem #fff;
   animation: moveInRight 1s ease-out;
 }
 
 .heading-3 {
-  font-size: 33px;
-  letter-spacing: 5px;
-  margin-right: -5px;
-  text-shadow: 3px -3px #fff;
+  font-size: 3.3rem;
+  letter-spacing: 0.5rem;
+  margin-right: -0.5rem;
+  text-shadow: 0.3rem -0.3rem #fff;
   animation: moveInLeft 1s ease-out;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 }
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translatex(-100px);
+    transform: translatex(-10rem);
   }
 
   60% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -79,11 +86,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translatex(100px);
+    transform: translatex(10rem);
   }
 
   60% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -98,21 +105,22 @@ body {
   background-color: #fff;
   color: #000;
   display: inline-block;
-  padding: 10px 30px;
-  border-radius: 100px;
-  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
+  padding: 1rem 3rem;
+  border-radius: 10rem;
+  box-shadow: 0 1rem 0.5rem rgba(0, 0, 0, 0.4);
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 15px 5px rgba(0, 0, 0, 0.4);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1.5rem 0.5rem rgba(0, 0, 0, 0.4);
 }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1rem 0.5rem rgba(0, 0, 0, 0.4);
 }
 
 .btn::after {
@@ -120,7 +128,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
