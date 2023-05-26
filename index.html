@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,12 +15,44 @@
     <title>이정옥</title>
   </head>
   <body>
-    <header class="header">
+    <nav class="nav-sticky">
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#introduction">About me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- 깃허브 이모지 넣기 -->
+        <li><a href="https://github.com/ok-olly">😇</a></li>
+      </ul>
+    </nav>
+
+    <header class="header" id="home">
+      <!-- flexbox로 가운데 정렬하기.. -->
       <div class="header__text-box">
+        <!-- 안녕하세요! 프론트엔드 개발자 이정옥입니다.로 수정하기 -->
         <h1 class="heading-1">이정옥</h1>
         <h3 class="heading-3">프론트엔드 개발자</h3>
         <a href="#" class="btn">더 알아보기 ▶️</a>
       </div>
     </header>
+
+    <section class="introduction" id="introduction">
+      <p class="introduction-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat velit,
+        eligendi facere quia vitae dicta eum beatae voluptatum illum aperiam
+        assumenda dignissimos, doloribus incidunt, explicabo voluptas nam optio
+        ut eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+      </p>
+      <img class="introduction-picture" src="./img/me.jpg" alt="mypicture" />
+    </section>
+
+    <!-- html, css, js, react, scss 이모지 넣기 -->
+    <section class="skillsets">skillsets</section>
+
+    <section class="projects" id="projects">projects</section>
+
+    <section class="contact" id="contact">contact</section>
+
+    <footer class="footer">footer</footer>
   </body>
 </html>
