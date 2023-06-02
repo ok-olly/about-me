@@ -30,6 +30,7 @@
   --color-primary: #586d35;
   --color-primary-dark-1: #444939;
   --color-primary-dark-2: #091a00;
+  --color-highlight: #99ff00;
 }
 
 *,
@@ -42,6 +43,12 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--color-highlight);
+  color: var(--color-primary-dark-2);
 }
 
 body {
@@ -101,7 +108,7 @@ body {
   animation: moveInRight 1s ease-out;
 }
 
-.heading-3 {
+.heading-2 {
   color: var(--color-primary-dark-2);
   font-size: 3.3rem;
   letter-spacing: 0.5rem;
@@ -118,13 +125,13 @@ body {
 }
 
 .nav-list {
-  padding-left: 15rem;
   padding-right: 15rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   list-style-type: none;
   background-image: linear-gradient(to right bottom, var(--color-primary-dark-1), var(--color-primary-dark-2));
+  height: 6rem;
 }
 .nav-list > li > a:link,
 .nav-list a:visited {
@@ -145,6 +152,18 @@ body {
   color: var(--color-primary-light-2);
   transform: translateY(0.2rem);
 }
+.nav-list__icon {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--color-primary-light-1);
+  transform: translateY(0.2rem);
+}
+.nav-list__icon:hover {
+  fill: var(--color-primary-light-2);
+}
+.nav-list__icon:active {
+  fill: var(--color-primary-light-2);
+}
 
 .header {
   height: 90vh;
@@ -164,7 +183,7 @@ body {
 }
 
 .introduction {
-  height: 60vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,6 +198,110 @@ body {
   width: 30rem;
   border-radius: 50%;
   border: 0.7rem solid var(--color-primary-light-2);
+}
+
+.skillsets {
+  background-color: var(--color-primary-dark-1);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  transform: skewY(-7deg);
+}
+.skillsets > * {
+  transform: skewY(7deg);
+}
+.skillsets__icon {
+  width: 10rem;
+  position: relative;
+}
+.skillsets__icon-html5 {
+  grid-area: 2/2;
+}
+.skillsets__icon-css3 {
+  grid-area: 3/4;
+}
+.skillsets__icon-js {
+  grid-area: 2/5;
+}
+.skillsets__icon-react {
+  grid-area: 3/6;
+}
+.skillsets__icon-sass {
+  grid-area: 2/7;
+}
+.skillsets__icon-mysql {
+  grid-area: 4/3;
+}
+.skillsets__icon-git {
+  grid-area: 4/7;
+}
+
+.projects {
+  background-image: url(../img/stacked-waves-haikei.svg);
+  background-size: cover;
+  position: relative;
+  z-index: -100;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards {
+  width: 30rem;
+  height: 50rem;
+  background-color: var(--color-primary-light-1);
+  border-radius: 3px;
+  position: relative;
+}
+.cards:not(:last-child) {
+  margin-right: 4rem;
+}
+.cards__image {
+  height: 25rem;
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.cards__image--1 {
+  background-image: url(../img/dummy-image-1.png);
+}
+.cards__image--2 {
+  background-image: url(../img/dummy-image-2.png);
+}
+.cards__image--3 {
+  background-image: url(../img/dummy-image-3.png);
+}
+.cards__heading {
+  font-size: 2.3rem;
+  position: absolute;
+  top: 20rem;
+  right: 2rem;
+  letter-spacing: 0.7rem;
+}
+.cards__heading-span {
+  background-color: var(--color-primary);
+  padding: 1rem;
+}
+.cards__text {
+  color: var(--color-primary-dark-2);
+  font-size: 1.5rem;
+  padding: 2rem;
+}
+.cards__skills {
+  color: var(--color-primary-dark-2);
+  font-size: 1.5rem;
+  padding: 2rem;
+}
+
+.footer {
+  background-image: linear-gradient(to right bottom, var(--color-primary-dark-1), var(--color-primary-dark-2));
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.4rem;
 }
 
 /*# sourceMappingURL=style.css.map */

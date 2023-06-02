@@ -13,6 +13,8 @@
   --color-primary: #586d35;
   --color-primary-dark-1: #444939;
   --color-primary-dark-2: #091a00; // background
+
+  --color-highlight: #99ff00;
 }
 
 *,
@@ -25,6 +27,12 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--color-highlight);
+  color: var(--color-primary-dark-2);
 }
 
 body {

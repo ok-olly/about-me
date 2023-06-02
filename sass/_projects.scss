@@ -1,0 +1,72 @@
+.projects {
+  background-image: url(../img/stacked-waves-haikei.svg);
+  background-size: cover;
+  // transform: translateY(-9rem);
+  // padding-top: 18rem;
+  position: relative;
+  z-index: -100;
+
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards {
+  width: 30rem;
+  height: 50rem;
+  background-color: var(--color-primary-light-1);
+  border-radius: 3px;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-right: 4rem;
+  }
+
+  &__image {
+    // border-top-left-radius: 3px;
+    // border-top-right-radius: 3px;
+    height: 25rem;
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: url(../img/dummy-image-1.png);
+    }
+
+    &--2 {
+      background-image: url(../img/dummy-image-2.png);
+    }
+
+    &--3 {
+      background-image: url(../img/dummy-image-3.png);
+    }
+  }
+
+  &__heading {
+    font-size: 2.3rem;
+    position: absolute;
+    top: 20rem;
+    right: 2rem;
+    letter-spacing: 0.7rem;
+
+    &-span {
+      background-color: var(--color-primary);
+      padding: 1rem;
+    }
+  }
+
+  &__text {
+    color: var(--color-primary-dark-2);
+    font-size: 1.5rem;
+    padding: 2rem;
+  }
+
+  &__skills {
+    color: var(--color-primary-dark-2);
+    font-size: 1.5rem;
+    padding: 2rem;
+  }
+}
