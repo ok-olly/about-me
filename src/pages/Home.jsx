@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="px-3 text-center text-neutral-700">
+    <div className="px-3 text-center text-neutral-800">
       <h1 className="leading-relaxed">
         <p>안녕하세요!</p>
         <p>
@@ -14,8 +14,13 @@ function Home() {
         </p>
       </h1>
 
-      <div className="mt-5 inline-block text-base hover:text-white">
-        <Link to="/about">&rarr; 더 알아보기</Link>
+      <div className="mt-5 flex flex-col gap-1 text-base">
+        <Link to="https://github.com/ok-olly" className="hover:text-white">
+          &rarr; GitHub 구경하기
+        </Link>
+        <Link to="/about" className="hover:text-white">
+          &rarr; 더 알아보기
+        </Link>
       </div>
     </div>
   );

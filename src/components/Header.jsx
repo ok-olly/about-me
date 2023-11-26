@@ -10,16 +10,16 @@ function Header() {
     setShowNav(false);
   }, [location]);
 
-  const beforeStyle = `before:left-0 before:absolute before:mb-1 before:h-1.5 before:w-8 before:rounded before:bg-neutral-700 before:duration-500 ${
+  const beforeStyle = `before:left-0 before:absolute before:mb-1 before:h-1.5 before:w-8 before:rounded before:bg-neutral-800 before:duration-500 ${
     showNav ? "before:rotate-[135deg] before:top-0" : "before:-top-2"
   }`;
 
-  const afterStyle = `after:left-0 after:absolute after:h-1.5 after:w-8 after:rounded after:bg-neutral-700 after:duration-500 ${
+  const afterStyle = `after:left-0 after:absolute after:h-1.5 after:w-8 after:rounded after:bg-neutral-800 after:duration-500 ${
     showNav ? "after:rotate-[-135deg] after:top-0" : "after:top-2"
   }`;
 
   const style = `${beforeStyle} ${afterStyle} relative h-1.5 w-8 rounded duration-500 ${
-    showNav ? "bg-transparent" : "bg-neutral-700"
+    showNav ? "bg-transparent" : "bg-neutral-800"
   } `;
 
   return (
