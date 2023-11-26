@@ -8,12 +8,17 @@ import Error from "../src/pages/Error";
 
 function AppLayout() {
   return (
-    <div>
-      <Header />
+    <div className="animate-bg-gradient font-plex h-screen bg-gradient-to-br from-lime-500 via-amber-200 to-violet-300 bg-[length:400%_400%] text-2xl text-neutral-950">
+      {/* <div className="flex h-screen flex-col items-center justify-between"> */}
+      <div className="relative">
+        <Header />
 
-      <main>
-        <Outlet />
-      </main>
+        {/* <main className="flex h-[400px] items-center justify-center"> */}
+        {/* <main className="flex h-full items-center"> */}
+        <main className="absolute left-0 top-0 flex h-screen w-screen items-center justify-center">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 }
