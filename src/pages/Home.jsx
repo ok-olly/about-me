@@ -1,26 +1,21 @@
-import { Link } from "react-router-dom";
+import Heading from "../components/Heading";
+import ArrowButton from "../components/ArrowButton";
 
 function Home() {
   return (
-    <div className="px-3 text-center text-neutral-800">
-      <h1 className="leading-relaxed">
+    <div className="px-3 text-center">
+      <div className="leading-relaxed">
         <p>안녕하세요!</p>
-        <p>
-          프론트엔드 개발자{" "}
-          <span className="text font-semibold text-neutral-950 underline decoration-wavy underline-offset-8">
-            이정옥
-          </span>
-          입니다
-        </p>
-      </h1>
 
-      <div className="mt-5 flex flex-col gap-1 text-base">
-        <Link to="https://github.com/ok-olly" className="hover:text-white">
-          &rarr; GitHub 구경하기
-        </Link>
-        <Link to="/about" className="hover:text-white">
-          &rarr; 더 알아보기
-        </Link>
+        <div className="flex flex-wrap justify-center">
+          <span>프론트엔드 개발자 &nbsp;</span>
+          <Heading>이정옥</Heading>
+          <span>입니다</span>
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <ArrowButton to="/about">더 알아보기</ArrowButton>
       </div>
     </div>
   );

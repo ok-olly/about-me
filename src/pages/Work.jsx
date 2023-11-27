@@ -1,5 +1,13 @@
+import Heading from "../components/Heading";
+
 function Work() {
-  return <div>my Work</div>;
+  return (
+    <div>
+      <div>
+        <Heading>Work</Heading>
+      </div>
+    </div>
+  );
 }
 
 export default Work;
