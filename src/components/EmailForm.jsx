@@ -30,9 +30,20 @@ function EmailForm() {
 
   return (
     <div className="mt-2 w-72 text-base">
-      <p className="mb-2">To: olivia.jeongok.lee@gmail.com</p>
+      {/* <p className="mb-2">To: olivia.jeongok.lee@gmail.com</p> */}
 
       <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-3">
+        <div className="flex items-center">
+          <label htmlFor="to" className="w-1/5">
+            To:
+          </label>
+          <input
+            id="to"
+            className="w-4/5 p-1 focus:outline-violet-500"
+            value="olivia.jeongok.lee@gmail.com"
+            readOnly
+          />
+        </div>
         <div className="flex items-center">
           <label htmlFor="email" className="w-1/5">
             From:
