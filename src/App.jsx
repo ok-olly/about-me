@@ -3,13 +3,14 @@ import Header from "./components/Header";
 import Home from "../src/pages/Home";
 import About from "../src/pages/About";
 import Work from "../src/pages/Work";
+import WorkDetail from "./pages/WorkDetail";
 import Contact from "../src/pages/Contact";
 import Error from "../src/pages/Error";
 import { Toaster } from "react-hot-toast";
 
 function AppLayout() {
   return (
-    <div className="h-screen animate-bg-gradient bg-gradient-to-br from-lime-500 via-amber-200 to-violet-300 bg-[length:400%_400%] font-plex text-2xl text-neutral-800">
+    <div className="h-screen animate-bg-gradient bg-gradient-to-br from-lime-500 via-amber-200 to-violet-300 bg-[length:400%_400%] font-plex text-base text-neutral-800">
       <div className="relative">
         <Header />
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/work",
         element: <Work />,
+      },
+      {
+        path: "/work/:id",
+        element: <WorkDetail />,
       },
       {
         path: "/contact",

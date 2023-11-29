@@ -8,9 +8,6 @@ import {
   SiReact,
   SiRedux,
   SiGit,
-  // SiMysql,
-  // SiLeaflet,
-  // SiSupabase,
 } from "react-icons/si";
 
 import Heading from "../components/Heading";
@@ -19,7 +16,7 @@ import ArrowButton from "../components/ArrowButton";
 function Home() {
   return (
     <div className="relative flex w-full flex-col gap-5 px-3 text-center">
-      <div className="leading-relaxed">
+      <div className="z-10 text-2xl leading-relaxed">
         <p>안녕하세요!</p>
 
         <div className="flex flex-wrap justify-center">
@@ -39,10 +36,6 @@ function Home() {
         <SiReact />
         <SiRedux />
         <SiGit />
-
-        {/* <SiMysql />
-        <SiLeaflet />
-        <SiSupabase /> */}
       </div>
 
       <div className="z-10">
