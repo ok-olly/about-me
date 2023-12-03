@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import { Tooltip as ReactTooltip } from "react-tooltip";
 import {
   SiHtml5,
   SiSass,
@@ -16,6 +15,7 @@ import {
 
 import Heading from "../components/Heading";
 import SimpleSlider from "../components/SimpleSlider";
+import Tooltips from "../components/Tooltips";
 
 const work = [
   {
@@ -23,7 +23,7 @@ const work = [
     title: "Olly's Closet ↗",
     desc1: "E-Commerce Store (Responsive)",
     desc2:
-      "옷이 좋아서 다녔던 구매대행 회사에서 만난 친구들은 제게 코딩을 배워보라고 추천했었죠. 그리고 제가 해냈습니다 😊 프로젝트를 진행하면서 제가 직접 촬영한 사진들을 활용하여 그때의 추억이 새록새록 떠오르는 기분이었어요. 제 취향과 경험을 담아 완성한 프로젝트인 만큼 많은 정성을 쏟았습니다. 아직은 결제 기능이 구현되어 있지 않지만, 제가 나중에 사업을 하게 된다면 추가될 수도..? 앞으로 더 많은 기능과 업데이트가 기다리고 있습니다. 기대해 주세요!",
+      "Supabase와 React를 활용하여 만든 온라인 쇼핑몰입니다. 실제로 명품 구매대행 회사에 근무하던 시절 직접 촬영했던 사진을 사용해서 프로젝트 동안 그때의 추억이 새록새록 떠올랐어요. 아직은 결제 기능이 구현되어 있지 않지만, 제가 나중에 사업을 하게 된다면 추가될 수도..? 앞으로 더 많은 기능과 업데이트가 기다리고 있습니다. 기대해 주세요!",
     img: [
       "/img/ollycloset/desktop01.png",
       "/img/ollycloset/desktop02.png",
@@ -37,12 +37,15 @@ const work = [
       // "/img/ollycloset/mobile03.png",
     ],
     tool: [
-      { id: 1, logo: <SiReact /> },
-      { id: 2, logo: <SiRedux /> },
-      { id: 3, logo: <SiSupabase /> },
-      { id: 4, logo: <SiJavascript /> },
-      { id: 5, logo: <SiStyledcomponents /> },
-      { id: 6, logo: <SiVite /> },
+      { id: 1, logo: <SiReact data-tooltip-id="react-icon" /> },
+      { id: 2, logo: <SiRedux data-tooltip-id="redux-icon" /> },
+      { id: 3, logo: <SiSupabase data-tooltip-id="supabase-icon" /> },
+      { id: 4, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
+      {
+        id: 5,
+        logo: <SiStyledcomponents data-tooltip-id="styled-components-icon" />,
+      },
+      { id: 6, logo: <SiVite data-tooltip-id="vite-icon" /> },
     ],
     url1: "https://ollys-closet.netlify.app",
     url2: "https://github.com/ok-olly/olly-closet",
@@ -50,15 +53,15 @@ const work = [
   {
     id: "todolist",
     title: "To-Do List ↗",
-    desc1: "Web App (Responsive)",
+    desc1: "Web App",
     desc2:
-      "바닐라 자바스크립트만으로 만들었던 투두리스트 앱을 리액트로 다시 만들어봤습니다. ",
-    img: [],
+      "자바스크립트만으로 만들었던 투두리스트 앱을 리액트로 다시 만들어봤습니다. 상단에서 날짜와 시간을 확인할 수 있습니다. 목록 작성은 물론 수정, 삭제 및 체크 표시가 가능하며 로컬 스토리지를 사용하여 로그아웃하기 전까지는 작성한 내용이 유지됩니다. 사용자의 위치에 따라 날씨 정보가 제공되고 화면을 새로 고칠 때마다 새로운 명언을 볼 수 있습니다.",
+    img: ["/img/todolist/desktop01.png", "/img/todolist/desktop02.png"],
     tool: [
-      { id: 1, logo: <SiReact /> },
-      { id: 2, logo: <SiJavascript /> },
-      { id: 3, logo: <SiTailwindcss /> },
-      { id: 4, logo: <SiVite /> },
+      { id: 1, logo: <SiReact data-tooltip-id="react-icon" /> },
+      { id: 2, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
+      { id: 3, logo: <SiTailwindcss data-tooltip-id="tailwind-icon" /> },
+      { id: 4, logo: <SiVite data-tooltip-id="vite-icon" /> },
     ],
     url1: "https://teenytiny-todolist.netlify.app",
     url2: "https://github.com/ok-olly/todolist",
@@ -67,13 +70,14 @@ const work = [
     id: "singstreet",
     title: "Sing Street ↗",
     desc1: "Movie Filming Location Map (Responsive)",
-    desc2: "",
-    img: [],
+    desc2:
+      "Leaflet과 JavaScript를 활용하여 만든 지도 앱입니다. 제가 좋아하는 영화 Sing Street의 촬영지를 담고 있습니다. 방문한 장소는 visited 버튼을 클릭하여 지도에 표시할 수 있습니다. 장소를 방문할 때마다 방문율을 나타내는 프로그레스 바가 추가될 예정이며 추후 다른 영화 버전도 만나보실 수 있습니다 😊",
+    img: ["/img/singsteet/desktop01.png"],
     tool: [
-      { id: 1, logo: <SiJavascript /> },
-      { id: 2, logo: <SiLeaflet /> },
-      { id: 3, logo: <SiHtml5 /> },
-      { id: 4, logo: <SiSass /> },
+      { id: 1, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
+      { id: 2, logo: <SiLeaflet data-tooltip-id="leaflet-icon" /> },
+      { id: 3, logo: <SiHtml5 data-tooltip-id="html-icon" /> },
+      { id: 4, logo: <SiSass data-tooltip-id="sass-icon" /> },
     ],
     url1: "https://singstreet-filming-locations.netlify.app",
     url2: "https://github.com/ok-olly/sing-street",
@@ -87,51 +91,38 @@ function WorkDetail() {
 
   return (
     <>
-      <div className="px-3">
-        <div className="rounded-xl bg-neutral-50/50 p-5">
-          <div className="mx-auto mb-8 w-72">
-            <SimpleSlider image={data.img} />
+      {/* <div className="px-3"> */}
+      <div className="rounded-xl bg-neutral-50/50 p-5 md:flex md:gap-7 md:p-7">
+        <div className="mx-auto mb-8 w-72 md:mb-0 md:w-80 lg:w-96">
+          <SimpleSlider image={data.img} />
+        </div>
+
+        <div className="w-72 md:w-80 lg:w-96">
+          <div className="mb-5 flex items-center justify-between">
+            <Link to={data.url1} data-tooltip-id="my-tooltip-1">
+              <Heading>{data.title}</Heading>
+            </Link>
+            <Link to={data.url2}>
+              <SiGithub className="text-2xl" data-tooltip-id="my-tooltip-2" />
+            </Link>
           </div>
 
-          <div className="w-72">
-            <div className="mb-5 flex items-center justify-between">
-              <Link to={data.url1} data-tooltip-id="my-tooltip-1">
-                <Heading>{data.title}</Heading>
-              </Link>
-              <Link to={data.url2}>
-                <SiGithub
-                  className="text-2xl hover:text-white"
-                  data-tooltip-id="my-tooltip-2"
-                />
-              </Link>
+          <div className="flex flex-col gap-2">
+            <span className="text-sm">{data.desc1}</span>
+
+            <div className="flex gap-2">
+              {data.tool.map((t) => (
+                <span key={t.id}>{t.logo}</span>
+              ))}
             </div>
 
-            <div className="flex flex-col gap-2">
-              <span className="text-sm">{data.desc1}</span>
-
-              <div className="flex gap-2">
-                {data.tool.map((t) => (
-                  <span key={t.id}>{t.logo}</span>
-                ))}
-              </div>
-
-              <div className="tracking-wide">{data.desc2}</div>
-            </div>
+            <div className="tracking-wide">{data.desc2}</div>
           </div>
         </div>
       </div>
-      <ReactTooltip
-        id="my-tooltip-1"
-        place="bottom"
-        content={data.url1}
-        variant="success"
-      />
-      <ReactTooltip
-        id="my-tooltip-2"
-        place="bottom"
-        content={data.url2}
-        variant="success"
-      />
+      {/* </div> */}
+
+      <Tooltips url1={data.url1} url2={data.url2} />
     </>
   );
 }

@@ -23,7 +23,7 @@ function About() {
           좋아하는 일에 진심인 저와 같이 일해보실래요?
         </div>
 
-        <div className="self-start">
+        <div className="mt-2 self-start">
           <ArrowButton to="#">이력서 보기</ArrowButton>
         </div>
       </div>

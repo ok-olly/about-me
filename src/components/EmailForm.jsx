@@ -33,7 +33,7 @@ function EmailForm() {
   };
 
   return (
-    <div className="mt-2 w-72 text-base">
+    <div className="mt-2 w-72 text-base md:w-96">
       {isLoading ? (
         <div className="relative h-80">
           <span className="loader"></span>
