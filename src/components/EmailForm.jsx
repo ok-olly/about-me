@@ -46,7 +46,7 @@ function EmailForm() {
             </label>
             <input
               id="to"
-              className="w-4/5 p-1 focus:outline-violet-500"
+              className="w-4/5 p-1 focus:outline-violet-500 dark:bg-neutral-600"
               value="olivia.jeongok.lee@gmail.com"
               readOnly
             />
@@ -58,7 +58,7 @@ function EmailForm() {
             </label>
             <input
               id="email"
-              className="w-4/5 p-1 focus:outline-violet-500"
+              className="w-4/5 p-1 focus:outline-violet-500 dark:bg-neutral-600"
               type="email"
               name="user_email"
               placeholder="Email"
@@ -67,7 +67,7 @@ function EmailForm() {
           </div>
 
           <input
-            className="p-1 focus:outline-violet-500"
+            className="p-1 focus:outline-violet-500 dark:bg-neutral-600"
             type="text"
             name="user_name"
             placeholder="Name"
@@ -75,7 +75,7 @@ function EmailForm() {
           />
 
           <textarea
-            className="p-1 focus:outline-violet-500"
+            className="p-1 focus:outline-violet-500 dark:bg-neutral-600"
             name="message"
             placeholder="Message"
             rows="7"
@@ -85,7 +85,7 @@ function EmailForm() {
           <input
             type="submit"
             value="Send"
-            className="cursor-pointer rounded-xl border-4 border-solid border-white p-1 transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:bg-violet-500 hover:text-white hover:shadow-xl focus:outline-violet-500 active:translate-y-0 active:border-violet-500 active:bg-violet-700"
+            className="cursor-pointer rounded-xl border-4 border-solid border-white p-1 transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:bg-violet-500 hover:text-white hover:shadow-xl focus:outline-violet-500 active:translate-y-0 active:border-violet-500 active:bg-violet-700 dark:hover:bg-violet-900"
             disabled={isLoading}
           />
         </form>

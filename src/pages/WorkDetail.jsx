@@ -91,8 +91,7 @@ function WorkDetail() {
 
   return (
     <>
-      {/* <div className="px-3"> */}
-      <div className="rounded-xl bg-neutral-50/50 p-5 md:flex md:gap-7 md:p-7">
+      <div className="rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:flex md:gap-7 md:p-7">
         <div className="mx-auto mb-8 w-72 md:mb-0 md:w-80 lg:w-96">
           <SimpleSlider image={data.img} />
         </div>
@@ -120,7 +119,6 @@ function WorkDetail() {
           </div>
         </div>
       </div>
-      {/* </div> */}
 
       <Tooltips url1={data.url1} url2={data.url2} />
     </>

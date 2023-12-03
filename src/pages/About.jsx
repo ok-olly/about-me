@@ -3,11 +3,10 @@ import ArrowButton from "../components/ArrowButton";
 
 function About() {
   return (
-    // <div className="px-3">
-    <div className="flex flex-col items-center gap-3 rounded-xl bg-neutral-50/50 p-5 md:flex-row md:gap-7 md:p-7">
+    <div className="flex flex-col items-center gap-3 rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:flex-row md:gap-7 md:p-7">
       <img
         src="./img/profile.jpg"
-        className="w-72 rounded-xl border-4 border-solid border-white md:rounded-full"
+        className="w-72 rounded-xl border-4 border-solid border-white dark:brightness-75 md:rounded-full"
       />
 
       <div className="w-72">
@@ -28,7 +27,6 @@ function About() {
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 

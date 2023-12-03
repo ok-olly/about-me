@@ -4,7 +4,7 @@ function ArrowButton({ children, to }) {
   return (
     <Link
       to={to}
-      className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500"
+      className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500 dark:hover:text-neutral-100"
     >
       &rarr; {children}
     </Link>

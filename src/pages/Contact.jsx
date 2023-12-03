@@ -7,7 +7,7 @@ import Heading from "../components/Heading";
 function Contact() {
   return (
     <>
-      <div className="flex flex-col items-center gap-3 rounded-xl bg-neutral-50/50 p-5 md:p-7">
+      <div className="flex flex-col items-center gap-3 rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:p-7">
         <div className="flex w-full justify-between">
           <Heading>Contact</Heading>
 

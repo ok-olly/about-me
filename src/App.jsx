@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 
 function AppLayout() {
   return (
-    <div className="h-screen animate-bg-gradient bg-gradient-to-br from-lime-500 via-amber-200 to-violet-300 bg-[length:400%_400%] font-plex text-base text-neutral-800">
+    <div className="h-screen animate-bg-gradient bg-gradient-to-br from-lime-500 via-amber-200 to-violet-300 bg-[length:400%_400%] font-plex text-base text-neutral-800 dark:from-lime-800 dark:via-stone-700 dark:to-violet-700 dark:text-neutral-300">
       <div className="relative">
         <Header />
 
@@ -43,9 +43,9 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      { path: "*", element: <Error /> },
     ],
   },
-  { path: "*", element: <Error /> },
 ]);
 
 function App() {
