@@ -20,7 +20,6 @@ function ThemeSwitcher() {
 
   return (
     <button onClick={toggleDarkMode} className="text-2xl">
-      {/* {darkMode ? "Light Mode" : "Dark Mode"} */}
       {darkMode ? <FaSun /> : <FaMoon />}
     </button>
   );

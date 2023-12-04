@@ -32,9 +32,7 @@ const work = [
       "/img/ollycloset/desktop05.png",
       "/img/ollycloset/desktop06.png",
       "/img/ollycloset/desktop07.png",
-      // "/img/ollycloset/mobile01.png",
-      // "/img/ollycloset/mobile02.png",
-      // "/img/ollycloset/mobile03.png",
+      "/img/ollycloset/mobile.png",
     ],
     tool: [
       { id: 1, logo: <SiReact data-tooltip-id="react-icon" /> },
@@ -72,7 +70,7 @@ const work = [
     desc1: "Movie Filming Location Map (Responsive)",
     desc2:
       "Leaflet과 JavaScript를 활용하여 만든 지도 앱입니다. 제가 좋아하는 영화 Sing Street의 촬영지를 담고 있습니다. 방문한 장소는 visited 버튼을 클릭하여 지도에 표시할 수 있습니다. 장소를 방문할 때마다 방문율을 나타내는 프로그레스 바가 추가될 예정이며 추후 다른 영화 버전도 만나보실 수 있습니다 😊",
-    img: ["/img/singsteet/desktop01.png"],
+    img: ["/img/singsteet/desktop01.png", "/img/singsteet/mobile.png"],
     tool: [
       { id: 1, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
       { id: 2, logo: <SiLeaflet data-tooltip-id="leaflet-icon" /> },

@@ -1,5 +1,4 @@
 import Heading from "../components/Heading";
-import ArrowButton from "../components/ArrowButton";
 
 function About() {
   return (
@@ -23,7 +22,13 @@ function About() {
         </div>
 
         <div className="mt-2 self-start">
-          <ArrowButton to="#">이력서 보기</ArrowButton>
+          <a
+            href="./이정옥_이력서.pdf"
+            className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500 dark:hover:text-neutral-100"
+            target="_blank"
+          >
+            &rarr; 이력서 보기
+          </a>
         </div>
       </div>
     </div>
