@@ -21,13 +21,20 @@ function About() {
           좋아하는 일에 진심인 저와 같이 일해보실래요?
         </div>
 
-        <div className="mt-2 self-start">
+        <div className="mt-2 flex flex-col gap-3 self-start">
           <a
             href="./이정옥_이력서.pdf"
             className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500 dark:hover:text-neutral-100"
             target="_blank"
           >
-            &rarr; 이력서 보기
+            &rarr; 이력서.pdf 열기
+          </a>
+          <a
+            href="./이정옥_포트폴리오.pdf"
+            className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500 dark:hover:text-neutral-100"
+            target="_blank"
+          >
+            &rarr; 포트폴리오.pdf 열기
           </a>
         </div>
       </div>
