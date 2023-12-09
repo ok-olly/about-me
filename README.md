@@ -47,7 +47,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/ok-olly/about-me.git
 
 # Go into the repository
-$ cd olly-closet
+$ cd about-me
 
 # Install dependencies
 $ npm install
