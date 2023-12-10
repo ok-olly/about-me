@@ -12,21 +12,21 @@ function Work() {
       </div>
 
       <div className="text-center">
-        <Link to="/work/ollyscloset">
+        <Link to="/project/ollyscloset">
           <div className={style}>
             <h2>Olly&apos;s Closet</h2>
             <span className="text-sm sm:text-base">E-Commerce Store</span>
           </div>
         </Link>
 
-        <Link to="/work/todolist">
+        <Link to="/project/todolist">
           <div className={style}>
             <h2>To-Do List</h2>
             <span className="text-sm sm:text-base">Web App</span>
           </div>
         </Link>
 
-        <Link to="/work/singstreet">
+        <Link to="/project/singstreet">
           <div className={style}>
             <h2>Sing Street</h2>
             <span className="text-sm sm:text-base">

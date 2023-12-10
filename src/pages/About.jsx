@@ -14,28 +14,10 @@ function About() {
         </div>
 
         <div className="tracking-wide">
-          안녕하세요. 저는 이정옥이라고 합니다. React와 JavaScript를 기반으로한
-          front-end 개발을 하고 있습니다. 새로운 기술에 대한 학습에 열려 있으며,
-          항상 최신 트렌드와 개발 도구에 관심을 가지고 있습니다. 음악, 영화,
-          패션, 여행 등 이미 좋아하는 게 많은데 코딩까지 좋아하게된 저...
-          좋아하는 일에 진심인 저와 같이 일해보실래요?
-        </div>
-
-        <div className="mt-2 flex flex-col gap-3 self-start">
-          <a
-            href="./이정옥_이력서.pdf"
-            className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500 dark:hover:text-neutral-100"
-            target="_blank"
-          >
-            &rarr; 이력서.pdf 열기
-          </a>
-          <a
-            href="./이정옥_포트폴리오.pdf"
-            className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500 dark:hover:text-neutral-100"
-            target="_blank"
-          >
-            &rarr; 포트폴리오.pdf 열기
-          </a>
+          안녕하세요. 프론트엔드 개발자 이정옥입니다. React와 JavaScript를 주로
+          사용하고 있습니다. 문제 해결에 높은 흥미를 갖고 있으며 끊임없는 학습
+          의지로 효과적인 웹 솔루션을 창출하는 데 전념하고 있습니다. 다른 분들과
+          함께 작업해 볼 기회를 찾고 있습니다.
         </div>
       </div>
     </div>

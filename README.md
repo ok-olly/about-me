@@ -4,8 +4,6 @@
 <img src="public/img/aboutme/desktop01.png" height='300px'>
 </p>
 
-## https://olivia-jeongok-lee.netlify.app
-
 <div align="center">
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
@@ -15,6 +13,8 @@
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 </div>
+
+## https://olivia-jeongok-lee.netlify.app
 
 This is a portfolio website encompassing all of my projects.
 

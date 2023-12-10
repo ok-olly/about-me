@@ -47,6 +47,12 @@ const work = [
     ],
     url1: "https://ollys-closet.netlify.app",
     url2: "https://github.com/ok-olly/olly-closet",
+    features: [
+      "React와 Supabase를 활용한 온라인 쇼핑몰 구축",
+      "React Router와 Loader를 사용한 페이지 간의 내비게이션 및 데이터 로딩",
+      "Redux를 활용한 회원 정보 데이터 관리",
+      "Styled-Components를 사용한 스타일링과 디바이스에 따른 반응형 디자인 지원",
+    ],
   },
   {
     id: "todolist",
@@ -63,6 +69,11 @@ const work = [
     ],
     url1: "https://teenytiny-todolist.netlify.app",
     url2: "https://github.com/ok-olly/todolist",
+    features: [
+      "작성 내용은 localStorage에 저장",
+      "Weather API를 사용하여 사용자의 위치에 따른 날씨 정보 제공",
+      "새로고침할 때마다 나타나는 새로운 격언",
+    ],
   },
   {
     id: "singstreet",
@@ -79,6 +90,12 @@ const work = [
     ],
     url1: "https://singstreet-filming-locations.netlify.app",
     url2: "https://github.com/ok-olly/sing-street",
+    features: [
+      "영화 촬영지 위치 정보 안내",
+      "방문한 장소는 별도 표시 가능",
+      "localStorage에 저장하여 유지되는 방문 장소",
+      "SCSS를 사용한 스타일링과 디바이스에 따른 반응형 디자인 지원",
+    ],
   },
 ];
 
@@ -89,12 +106,12 @@ function WorkDetail() {
 
   return (
     <>
-      <div className="rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:flex md:gap-7 md:p-7">
-        <div className="mx-auto mb-8 w-72 md:mb-0 md:w-80 lg:w-96">
+      <div className="rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:p-7">
+        <div className="mx-auto mb-8 w-72 md:mb-7 md:w-[500px] lg:w-[600px]">
           <SimpleSlider image={data.img} />
         </div>
 
-        <div className="w-72 md:w-80 lg:w-96">
+        <div className="w-72 md:w-[500px] lg:w-[600px]">
           <div className="mb-5 flex items-center justify-between">
             <Link to={data.url1} data-tooltip-id="my-tooltip-1">
               <Heading>{data.title}</Heading>
@@ -105,15 +122,28 @@ function WorkDetail() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <span className="text-sm">{data.desc1}</span>
+            <div className="md:flex md:items-center md:justify-between">
+              <span className="text-sm">{data.desc1}</span>
 
-            <div className="flex gap-2">
-              {data.tool.map((t) => (
-                <span key={t.id}>{t.logo}</span>
-              ))}
+              <div className="flex gap-2">
+                {data.tool.map((t) => (
+                  <span key={t.id}>{t.logo}</span>
+                ))}
+              </div>
             </div>
 
-            <div className="tracking-wide">{data.desc2}</div>
+            <div className="h-60 overflow-scroll">
+              <div className="tracking-wide">{data.desc2}</div>
+
+              <h3 className="my-3 text-neutral-950 underline decoration-double underline-offset-4 dark:text-neutral-200">
+                Key Features
+              </h3>
+              <ul className="list-outside list-disc pl-4">
+                {data.features.map((el, i) => (
+                  <li key={i}>{el}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

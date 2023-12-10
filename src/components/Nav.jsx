@@ -18,8 +18,8 @@ function Nav() {
           </Link>
         </li>
         <li className={style}>
-          <Link to="/work" className="block">
-            Work
+          <Link to="/project" className="block">
+            Project
           </Link>
         </li>
         <li className={style}>
