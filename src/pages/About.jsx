@@ -19,6 +19,16 @@ function About() {
           의지로 효과적인 웹 솔루션을 창출하는 데 전념하고 있습니다. 다른 분들과
           함께 작업해 볼 기회를 찾고 있습니다.
         </div>
+
+        <div className="mt-2 flex flex-col gap-3 self-start">
+          <a
+            href="./이정옥_포트폴리오.pdf"
+            className="text-base underline underline-offset-8 transition-all hover:text-white focus:outline-violet-500 dark:hover:text-neutral-100"
+            target="_blank"
+          >
+            &rarr; 포트폴리오.pdf 열기
+          </a>
+        </div>
       </div>
     </div>
   );
