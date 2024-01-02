@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Heading from "../components/Heading";
+import Heading from "./Heading";
 
 const style =
   "mt-3 rounded-xl border-4 border-dashed border-white p-2 hover:border-violet-300 hover:bg-violet-500 hover:text-white  active:border-violet-500 active:bg-violet-700 dark:border-neutral-300 dark:hover:bg-violet-900 sm:flex sm:flex-row-reverse sm:items-center sm:justify-between";

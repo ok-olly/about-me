@@ -29,3 +29,58 @@
     transform: rotate(360deg);
   }
 }
+
+.mobile-p {
+  font-size: 1rem;
+  line-height: 1.7rem;
+  font-weight: 400;
+  font-family: "Gowun Dodum", sans-serif;
+}
+.mobile-h6-small {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h6 {
+  font-size: 1.19rem;
+  line-height: 1.69rem;
+  font-weight: 700;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h5 {
+  font-size: 1.14rem;
+  line-height: 1.64rem;
+  font-weight: 700;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h4 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h3-bold {
+  font-size: 2.06rem;
+  line-height: 2.56rem;
+  font-weight: 700;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h3 {
+  font-size: 2.06rem;
+  line-height: 2.56rem;
+  font-weight: 300;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 700;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h1 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 700;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}

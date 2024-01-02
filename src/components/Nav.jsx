@@ -16,6 +16,9 @@ function Nav() {
           <Link to="/about" className="block">
             About
           </Link>
+          <Link to="/about" className="block">
+            About
+          </Link>
         </li>
         <li className={style}>
           <Link to="/project" className="block">

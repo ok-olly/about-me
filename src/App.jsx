@@ -1,23 +1,16 @@
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Header from "./components/Header";
 import Home from "../src/pages/Home";
-import About from "../src/pages/About";
-import Work from "../src/pages/Work";
+// import About from "./components/About";
+// import Work from "./components/Work";
 import WorkDetail from "./pages/WorkDetail";
-import Contact from "../src/pages/Contact";
+// import Contact from "./components/Contact";
 import Error from "../src/pages/Error";
 import { Toaster } from "react-hot-toast";
 
 function AppLayout() {
   return (
-    <div className="h-screen animate-bg-gradient bg-gradient-to-br from-lime-500 via-amber-200 to-violet-300 bg-[length:400%_400%] font-plex text-base text-neutral-800 dark:from-lime-800 dark:via-stone-700 dark:to-violet-700 dark:text-neutral-300">
-      <div className="relative">
-        <Header />
-
-        <main className="absolute left-0 top-0 flex h-screen w-screen items-center justify-center">
-          <Outlet />
-        </main>
-      </div>
+    <div className="mobile-p">
+      <Outlet />
     </div>
   );
 }
@@ -27,22 +20,22 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { path: "/", element: <Home /> },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/project",
-        element: <Work />,
-      },
+      // {
+      //   path: "/about",
+      //   element: <About />,
+      // },
+      // {
+      //   path: "/project",
+      //   element: <Work />,
+      // },
       {
         path: "/project/:id",
         element: <WorkDetail />,
       },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
+      // {
+      //   path: "/contact",
+      //   element: <Contact />,
+      // },
       { path: "*", element: <Error /> },
     ],
   },

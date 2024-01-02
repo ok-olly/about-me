@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   SiHtml5,
   SiSass,
@@ -16,6 +16,8 @@ import {
 import Heading from "../components/Heading";
 import SimpleSlider from "../components/SimpleSlider";
 import Tooltips from "../components/Tooltips";
+import Footer from "../components/Footer";
+import { useRef } from "react";
 
 const work = [
   {
@@ -104,8 +106,51 @@ function WorkDetail() {
 
   const [data] = work.filter((project) => project.id === param.id);
 
+  const navigate = useNavigate();
+  const refContact = useRef(null);
+
   return (
     <>
+      <ul>
+        <li
+          onClick={
+            () =>
+              navigate("/", {
+                state: {
+                  location: "about",
+                },
+              })
+            // refAbout.current?.scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          about
+        </li>
+        <li
+          onClick={
+            () =>
+              navigate("/", {
+                state: {
+                  location: "project",
+                },
+              })
+            // refProject.current?.scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          project
+        </li>
+        <li
+          onClick={() =>
+            // navigate("/", {
+            //   state: {
+            //     location: "contact",
+            //   },
+            // })
+            refContact.current?.scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          contact
+        </li>
+      </ul>
       <div className="rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:p-7">
         <div className="mx-auto mb-8 w-72 md:mb-7 md:w-[500px] lg:w-[600px]">
           <SimpleSlider image={data.img} />
@@ -146,6 +191,10 @@ function WorkDetail() {
             </div>
           </div>
         </div>
+        <Footer ref={refContact} />
+        {/* <footer ref={refContact}>
+          <Footer />
+        </footer> */}
       </div>
 
       <Tooltips url1={data.url1} url2={data.url2} />

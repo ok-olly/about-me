@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { SiGithub, SiLinkedin } from "react-icons/si";
-import EmailForm from "../components/EmailForm";
-import Heading from "../components/Heading";
+import EmailForm from "./EmailForm";
+import Heading from "./Heading";
 
 function Contact() {
   return (
