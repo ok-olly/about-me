@@ -1,4 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useRef } from "react";
+
 import {
   SiHtml5,
   SiSass,
@@ -11,18 +13,26 @@ import {
   SiVite,
   SiGithub,
   SiLeaflet,
+  SiLinkedin,
 } from "react-icons/si";
 
-import Heading from "../components/Heading";
+import {
+  IoMoonOutline,
+  IoSunnyOutline,
+  IoMenuOutline,
+  IoArrowBackOutline,
+} from "react-icons/io5";
+
+import Heading from "../components-v1/Heading";
 import SimpleSlider from "../components/SimpleSlider";
-import Tooltips from "../components/Tooltips";
-import Footer from "../components/Footer";
-import { useRef } from "react";
+import Contact from "../components/Contact";
+import PrimaryBtn from "../components/PrimaryBtn";
+import SecondaryBtn from "../components/SecondaryBtn";
 
 const work = [
   {
     id: "ollyscloset",
-    title: "Olly's Closet ↗",
+    title: "Olly's Closet",
     desc1: "E-Commerce Store (Responsive)",
     desc2:
       "Supabase와 React를 활용하여 만든 온라인 쇼핑몰입니다. 실제로 명품 구매대행 회사에 근무하던 시절 직접 촬영했던 사진을 사용해서 프로젝트 동안 그때의 추억이 새록새록 떠올랐어요. 아직은 결제 기능이 구현되어 있지 않지만, 제가 나중에 사업을 하게 된다면 추가될 수도..? 앞으로 더 많은 기능과 업데이트가 기다리고 있습니다. 기대해 주세요!",
@@ -58,7 +68,7 @@ const work = [
   },
   {
     id: "todolist",
-    title: "To-Do List ↗",
+    title: "To-Do List",
     desc1: "Web App",
     desc2:
       "자바스크립트만으로 만들었던 투두리스트 앱을 리액트로 다시 만들어봤습니다. 상단에서 날짜와 시간을 확인할 수 있습니다. 목록 작성은 물론 수정, 삭제 및 체크 표시가 가능하며 로컬 스토리지를 사용하여 로그아웃하기 전까지는 작성한 내용이 유지됩니다. 사용자의 위치에 따라 날씨 정보가 제공되고 화면을 새로 고칠 때마다 새로운 명언을 볼 수 있습니다.",
@@ -79,11 +89,11 @@ const work = [
   },
   {
     id: "singstreet",
-    title: "Sing Street ↗",
+    title: "Sing Street",
     desc1: "Movie Filming Location Map (Responsive)",
     desc2:
       "Leaflet과 JavaScript를 활용하여 만든 지도 앱입니다. 제가 좋아하는 영화 Sing Street의 촬영지를 담고 있습니다. 방문한 장소는 visited 버튼을 클릭하여 지도에 표시할 수 있습니다. 장소를 방문할 때마다 방문율을 나타내는 프로그레스 바가 추가될 예정이며 추후 다른 영화 버전도 만나보실 수 있습니다 😊",
-    img: ["/img/singsteet/desktop01.png", "/img/singsteet/mobile.png"],
+    img: ["/img/singstreet/desktop01.png", "/img/singstreet/mobile.png"],
     tool: [
       { id: 1, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
       { id: 2, logo: <SiLeaflet data-tooltip-id="leaflet-icon" /> },
@@ -111,93 +121,190 @@ function WorkDetail() {
 
   return (
     <>
-      <ul>
-        <li
-          onClick={
-            () =>
-              navigate("/", {
-                state: {
-                  location: "about",
-                },
-              })
-            // refAbout.current?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          about
-        </li>
-        <li
-          onClick={
-            () =>
-              navigate("/", {
-                state: {
-                  location: "project",
-                },
-              })
-            // refProject.current?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          project
-        </li>
-        <li
-          onClick={() =>
-            // navigate("/", {
-            //   state: {
-            //     location: "contact",
-            //   },
-            // })
-            refContact.current?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          contact
-        </li>
-      </ul>
-      <div className="rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:p-7">
-        <div className="mx-auto mb-8 w-72 md:mb-7 md:w-[500px] lg:w-[600px]">
+      <header className="border-b-[1px] border-black/10">
+        <div className="flex items-center justify-between px-6 py-4">
+          <ul>
+            <li
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "home",
+                  },
+                })
+              }
+              className="pointerhover:hover:scale-x-105 cursor-pointer text-2xl"
+            >
+              😇
+            </li>
+          </ul>
+          <ul className="flex items-center gap-4">
+            <li className="flex rounded-full bg-black/5 p-1">
+              <div className="rounded-full bg-black/10 px-2 py-1">
+                <IoMoonOutline />
+              </div>
+              <div className="rounded-full px-2 py-1">
+                <IoSunnyOutline />
+              </div>
+            </li>
+            <li>
+              <IoMenuOutline className="pointerhover:hover:text-primary cursor-pointer text-2xl" />
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <div className="px-6 py-16">
+        <div className="w-full">
           <SimpleSlider image={data.img} />
         </div>
 
-        <div className="w-72 md:w-[500px] lg:w-[600px]">
-          <div className="mb-5 flex items-center justify-between">
-            <Link to={data.url1} data-tooltip-id="my-tooltip-1">
-              <Heading>{data.title}</Heading>
-            </Link>
-            <Link to={data.url2}>
-              <SiGithub className="text-2xl" data-tooltip-id="my-tooltip-2" />
-            </Link>
+        <div className="flex flex-col gap-12 py-16">
+          <div>
+            <h1 className="mobile-h3-bold mb-6">{data.title}</h1>
+            <p>{data.desc2}</p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <div className="md:flex md:items-center md:justify-between">
-              <span className="text-sm">{data.desc1}</span>
+          <div>
+            <h5 className="mobile-h5 mb-6">Key Features</h5>
+            <ul className="list-outside list-disc pl-6">
+              {data.features.map((el, i) => (
+                <li key={i}>{el}</li>
+              ))}
+            </ul>
+          </div>
 
-              <div className="flex gap-2">
-                {data.tool.map((t) => (
-                  <span key={t.id}>{t.logo}</span>
-                ))}
+          <div>
+            <h5 className="mobile-h5 mb-6">Tools</h5>
+
+            <div className="flex flex-wrap gap-2">
+              {data.tool.map((t) => (
+                <div
+                  key={t.id}
+                  className="inline-block rounded-lg bg-black/10 px-4 py-2"
+                >
+                  {t.logo}
+                </div>
+              ))}
+              {/*  */}
+              {/* 로고 넣을 방법,, */}
+              {/*  */}
+              <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <SiReact className="mr-4 inline -translate-y-0.5 text-2xl text-[#61DAFB]" />
+                <span className="">React</span>
+              </div>
+              <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <SiRedux className="mr-4 inline -translate-y-0.5 text-2xl text-[#764ABC]" />
+                <span className="">Redux</span>
               </div>
             </div>
+          </div>
 
-            <div className="h-60 overflow-scroll">
-              <div className="tracking-wide">{data.desc2}</div>
+          <div className="flex flex-col gap-6">
+            <PrimaryBtn
+              isStretch={true}
+              handleClick={() =>
+                window.open(data.url1, "_blank", "noopener, noreferrer")
+              }
+            >
+              <span>🛍️</span>
+              <span>View project</span>
+            </PrimaryBtn>
 
-              <h3 className="my-3 text-neutral-950 underline decoration-double underline-offset-4 dark:text-neutral-200">
-                Key Features
-              </h3>
-              <ul className="list-outside list-disc pl-4">
-                {data.features.map((el, i) => (
-                  <li key={i}>{el}</li>
-                ))}
-              </ul>
-            </div>
+            <SecondaryBtn
+              handleClick={() =>
+                window.open(data.url2, "_blank", "noopener, noreferrer")
+              }
+            >
+              <SiGithub />
+              <span>Visit github</span>
+            </SecondaryBtn>
+
+            <button type="button" className="self-start text-black/50">
+              <IoArrowBackOutline className="mr-2 inline -translate-y-0.5" />
+              <span>Go back</span>
+            </button>
           </div>
         </div>
-        <Footer ref={refContact} />
-        {/* <footer ref={refContact}>
+      </div>
+      {/* <Footer ref={refContact} /> */}
+      {/* <footer ref={refContact}>
           <Footer />
         </footer> */}
-      </div>
 
-      <Tooltips url1={data.url1} url2={data.url2} />
+      <Contact ref={refContact} />
+
+      <footer className="px-6 py-8">
+        <nav className="mb-3">
+          <ul className="mobile-h6-small-regular flex justify-between">
+            <li
+              className="pointerhover:hover:scale-x-105 cursor-pointer"
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "home",
+                  },
+                })
+              }
+            >
+              😇
+            </li>
+            <li
+              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "about",
+                  },
+                })
+              }
+            >
+              About Me
+            </li>
+            <li
+              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "project",
+                  },
+                })
+              }
+            >
+              My Projects
+            </li>
+            <li
+              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
+              onClick={() =>
+                refContact.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Contact
+            </li>
+          </ul>
+        </nav>
+
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-wrap">
+            <span className="mr-4">&copy; Copyright Olivia Lee 2024.</span>
+            <span>All rights reserved.</span>
+          </div>
+          <div className="flex flex-wrap">
+            <span className="mr-4">Privacy Policy</span>
+            <span>Terms &amp; Conditions</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="mobile-h6-small text-primary">
+              olivia.jeongok.lee@gmail.com
+            </span>
+            <Link to="https://github.com/ok-olly">
+              <SiGithub className="pointerhover:hover:text-primary cursor-pointer" />
+            </Link>
+            <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
+              <SiLinkedin className="pointerhover:hover:text-primary cursor-pointer" />
+            </Link>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

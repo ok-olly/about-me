@@ -6,10 +6,12 @@ import WorkDetail from "./pages/WorkDetail";
 // import Contact from "./components/Contact";
 import Error from "../src/pages/Error";
 import { Toaster } from "react-hot-toast";
+import ScrollToTop from "./components/ScrollToTop";
 
 function AppLayout() {
   return (
-    <div className="mobile-p">
+    <div className="mobile-p text-black">
+      <ScrollToTop />
       <Outlet />
     </div>
   );

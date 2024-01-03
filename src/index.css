@@ -36,6 +36,12 @@
   font-weight: 400;
   font-family: "Gowun Dodum", sans-serif;
 }
+.mobile-h6-small-regular {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
 .mobile-h6-small {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -45,7 +51,13 @@
 .mobile-h6 {
   font-size: 1.19rem;
   line-height: 1.69rem;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.mobile-h5-regular {
+  font-size: 1.14rem;
+  line-height: 1.64rem;
+  font-weight: 400;
   font-family: "IBM Plex Sans KR", sans-serif;
 }
 .mobile-h5 {
@@ -57,7 +69,7 @@
 .mobile-h4 {
   font-size: 1.75rem;
   line-height: 2.25rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: "IBM Plex Sans KR", sans-serif;
 }
 .mobile-h3-bold {

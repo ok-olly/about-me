@@ -1,3 +1,6 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+
 import {
   SiHtml5,
   SiCss3,
@@ -8,6 +11,8 @@ import {
   SiReact,
   SiRedux,
   SiGit,
+  SiGithub,
+  SiLinkedin,
 } from "react-icons/si";
 
 import {
@@ -15,17 +20,12 @@ import {
   IoSunnyOutline,
   IoMenuOutline,
   IoArrowDownOutline,
+  IoArrowForwardOutline,
 } from "react-icons/io5";
 
-import Heading from "../components/Heading";
-import ArrowButton from "../components/ArrowButton";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import Footer from "../components/Footer";
-// import Nav from "../components/Nav";
-
-const style =
-  "mt-3 rounded-xl border-4 border-dashed border-white p-2 hover:border-violet-300 hover:bg-violet-500 hover:text-white  active:border-violet-500 active:bg-violet-700 dark:border-neutral-300 dark:hover:bg-violet-900 sm:flex sm:flex-row-reverse sm:items-center sm:justify-between";
+import PrimaryBtn from "../components/PrimaryBtn";
+import SecondaryBtn from "../components/SecondaryBtn";
+import Contact from "../components/Contact";
 
 function Home() {
   const refHome = useRef(null);
@@ -42,15 +42,20 @@ function Home() {
 
   useEffect(() => {
     if (state) {
-      handleMove(state.location === "about" ? refAbout : refProject);
+      handleMove(
+        state.location === "home"
+          ? refHome
+          : state.location === "about"
+            ? refAbout
+            : refProject,
+      );
       navigate("/", {}); // clear state
     }
   }, [state, navigate]);
 
   return (
-    <div>
-      {/* 잠시 가려놓기
-      <nav>
+    <>
+      {/* <nav>
         <ul>
           <li onClick={() => handleMove(refHome)}>😇</li>
           <li onClick={() => handleMove(refAbout)}>about</li>
@@ -64,7 +69,7 @@ function Home() {
           <ul>
             <li
               onClick={() => handleMove(refHome)}
-              className="cursor-pointer text-2xl"
+              className="pointerhover:hover:scale-x-105 cursor-pointer text-2xl"
             >
               😇
             </li>
@@ -79,7 +84,7 @@ function Home() {
               </div>
             </li>
             <li>
-              <IoMenuOutline className="text-2xl" />
+              <IoMenuOutline className="pointerhover:hover:text-primary cursor-pointer text-2xl" />
             </li>
           </ul>
         </div>
@@ -87,36 +92,37 @@ function Home() {
 
       <main>
         <section className="flex flex-col gap-12 px-12 py-16">
-          <h3 className="from-primary to-secondary mobile-h3 inline-block bg-gradient-to-r bg-clip-text text-center text-transparent">
-            Hey there, I'm Olivia.
+          <h3 className="mobile-h3 inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-center text-transparent">
+            Hey there, I&apos;m Olivia.
           </h3>
           <h1 className="mobile-h1 text-center">Frontend Web Developer</h1>
-          <p className="">
+          <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
             laborum a quas. Quia sequi neque atque excepturi cum corporis,
             itaque dolor magni. Ducimus temporibus, provident quisquam quo rerum
             similique hic.
           </p>
-          <button
+          {/* <button
             onClick={() => handleMove(refAbout)}
-            className="from-primary to-secondary mobile-h6-small self-center rounded-full bg-gradient-to-r px-8 py-4 text-white shadow-xl"
+            className="mobile-h6-small self-center rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-white shadow-xl"
           >
             <span>More about me</span>
             <IoArrowDownOutline className="ml-2 inline" />
-          </button>
+          </button> */}
+          <PrimaryBtn handleClick={() => handleMove(refAbout)}>
+            <span>More about me</span>
+            <IoArrowDownOutline />
+          </PrimaryBtn>
         </section>
-
-        {/* 넘지말자.. */}
-        {/* 넘지말자.. */}
-        {/* 넘지말자.. */}
 
         <section
           ref={refAbout}
-          className="from-primary/50 to-secondary/50 flex flex-col gap-12 bg-gradient-to-r py-16"
+          className="flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16"
         >
           <div className="px-12">
             <img
               src="./img/profile.jpg"
+              alt="profile-picture"
               className="w-full rounded-full border-4 border-solid border-white"
             />
           </div>
@@ -134,7 +140,7 @@ function Home() {
             </div>
 
             <div>
-              <h3 className="mobile-h5 mb-4">Skills</h3>
+              <h5 className="mobile-h5 mb-4">Skills</h5>
 
               <div className="flex flex-wrap gap-2">
                 <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
@@ -188,43 +194,156 @@ function Home() {
           </div>
         </section>
 
-        <div className="h-screen">
-          <div className="mb-5" ref={refProject}>
-            <Heading>Work</Heading>
+        <section ref={refProject} className="py-16">
+          <div className="mb-16 px-12 text-center">
+            <h3 className="mobile-h3-bold mb-6">My Projects</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
+              porro velit architecto, asperiores atque unde? Nisi cupiditate
+              necessitatibus pariatur
+            </p>
           </div>
 
-          <div className="text-center">
-            <Link to="/project/ollyscloset">
-              <div className={style}>
-                <h2>Olly&apos;s Closet</h2>
-                <span className="text-sm sm:text-base">E-Commerce Store</span>
+          <div>
+            <article className="bg-[#363642] py-12">
+              <div className="mb-12 px-6">
+                <img
+                  src="./img/ollycloset/desktop01.png"
+                  alt="project1-thumbnail"
+                  className="rounded-lg"
+                />
               </div>
-            </Link>
 
-            <Link to="/project/todolist">
-              <div className={style}>
-                <h2>To-Do List</h2>
-                <span className="text-sm sm:text-base">Web App</span>
-              </div>
-            </Link>
+              <div className="flex flex-col gap-12 px-12 text-center">
+                <div className="text-white">
+                  <h4 className="mobile-h4 mb-6">Olly&apos;s Closet</h4>
+                  <h5 className="mobile-h5-regular">E-commerce store</h5>
+                </div>
 
-            <Link to="/project/singstreet">
-              <div className={style}>
-                <h2>Sing Street</h2>
-                <span className="text-sm sm:text-base">
-                  Movie Filming Location Map
-                </span>
+                <SecondaryBtn
+                  handleClick={() => navigate("/project/ollyscloset")}
+                >
+                  <span>View case</span>
+                  <IoArrowForwardOutline className="inline" />
+                </SecondaryBtn>
               </div>
+            </article>
+
+            <article className="bg-[#FFEF8A] py-12">
+              <div className="mb-12 px-6">
+                <img
+                  src="./img/todolist/desktop01.png"
+                  alt="project2-thumbnail"
+                  className="rounded-lg"
+                />
+              </div>
+
+              <div className="flex flex-col gap-12 px-12 text-center">
+                <div>
+                  <h4 className="mobile-h4 mb-6">To-Do List</h4>
+                  <h5 className="mobile-h5-regular">To do list web app</h5>
+                </div>
+
+                <SecondaryBtn handleClick={() => navigate("/project/todolist")}>
+                  <span>View case</span>
+                  <IoArrowForwardOutline className="ml-4 inline" />
+                </SecondaryBtn>
+              </div>
+            </article>
+
+            <article className="bg-[#D1CBD0] py-12">
+              <div className="mb-12 px-6">
+                <img
+                  src="./img/singstreet/desktop01.png"
+                  alt="project3-thumbnail"
+                  className="rounded-lg"
+                />
+              </div>
+
+              <div className="flex flex-col gap-12 px-12 text-center">
+                <div>
+                  <h4 className="mobile-h4 mb-6">Sing Street</h4>
+                  <h5 className="mobile-h5-regular">
+                    Movie filming location map
+                  </h5>
+                </div>
+
+                <SecondaryBtn
+                  handleClick={() => navigate("/project/singstreet")}
+                >
+                  <span>View case</span>
+                  <IoArrowForwardOutline className="ml-4 inline" />
+                </SecondaryBtn>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      {/* <Footer
+        ref={refContact}
+        handleMove={handleMove}
+        refHome={refHome}
+        refAbout={refAbout}
+        refProject={refProject}
+        refContact={refContact}
+      /> */}
+
+      <Contact ref={refContact} />
+
+      <footer className="px-6 py-8">
+        <nav className="mb-3">
+          <ul className="mobile-h6-small-regular flex justify-between">
+            <li
+              className="pointerhover:hover:scale-x-105 cursor-pointer"
+              onClick={() => handleMove(refHome)}
+            >
+              😇
+            </li>
+            <li
+              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
+              onClick={() => handleMove(refAbout)}
+            >
+              About Me
+            </li>
+            <li
+              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
+              onClick={() => handleMove(refProject)}
+            >
+              My Projects
+            </li>
+            <li
+              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
+              onClick={() => handleMove(refContact)}
+            >
+              Contact
+            </li>
+          </ul>
+        </nav>
+
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-wrap">
+            <span className="mr-4">&copy; Copyright Olivia Lee 2024.</span>
+            <span>All rights reserved.</span>
+          </div>
+          <div className="flex flex-wrap">
+            <span className="mr-4">Privacy Policy</span>
+            <span>Terms &amp; Conditions</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="mobile-h6-small text-primary">
+              olivia.jeongok.lee@gmail.com
+            </span>
+            <Link to="https://github.com/ok-olly">
+              <SiGithub className="pointerhover:hover:text-primary cursor-pointer" />
+            </Link>
+            <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
+              <SiLinkedin className="pointerhover:hover:text-primary cursor-pointer" />
             </Link>
           </div>
         </div>
-      </main>
-
-      {/* <footer ref={refContact}>
-        <Footer />
-      </footer> */}
-      <Footer ref={refContact} />
-    </div>
+      </footer>
+    </>
   );
 }
 

@@ -13,6 +13,11 @@ export default {
         secondary: "#415723",
         black: "#261F22",
       },
+      screens: {
+        pointerhover: {
+          raw: "(hover: hover) and (pointer: fine)",
+        },
+      },
     },
   },
   plugins: [],
