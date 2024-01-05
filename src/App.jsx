@@ -1,18 +1,19 @@
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "../src/pages/Home";
-// import About from "./components/About";
-// import Work from "./components/Work";
-import WorkDetail from "./pages/WorkDetail";
-// import Contact from "./components/Contact";
-import Error from "../src/pages/Error";
-import { Toaster } from "react-hot-toast";
+
 import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
+import Home from "../src/pages/Home";
+import WorkDetail from "./pages/WorkDetail";
+import Error from "../src/pages/Error";
+
+import { Toaster } from "react-hot-toast";
 
 function AppLayout() {
   return (
-    <div className="mobile-p text-black">
+    <div className="mobile-p bg-white text-black dark:bg-black">
       <ScrollToTop />
       <Outlet />
+      <Footer />
     </div>
   );
 }
@@ -22,22 +23,10 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { path: "/", element: <Home /> },
-      // {
-      //   path: "/about",
-      //   element: <About />,
-      // },
-      // {
-      //   path: "/project",
-      //   element: <Work />,
-      // },
       {
         path: "/project/:id",
         element: <WorkDetail />,
       },
-      // {
-      //   path: "/contact",
-      //   element: <Contact />,
-      // },
       { path: "*", element: <Error /> },
     ],
   },

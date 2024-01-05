@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
 import {
@@ -11,33 +11,28 @@ import {
   SiReact,
   SiRedux,
   SiGit,
-  SiGithub,
-  SiLinkedin,
 } from "react-icons/si";
 
-import {
-  IoMoonOutline,
-  IoSunnyOutline,
-  IoMenuOutline,
-  IoArrowDownOutline,
-  IoArrowForwardOutline,
-} from "react-icons/io5";
+import { IoArrowDownOutline, IoArrowForwardOutline } from "react-icons/io5";
 
 import PrimaryBtn from "../components/PrimaryBtn";
 import SecondaryBtn from "../components/SecondaryBtn";
-import Contact from "../components/Contact";
+import Header from "../components/Header";
 
 function Home() {
   const refHome = useRef(null);
   const refAbout = useRef(null);
   const refProject = useRef(null);
-  const refContact = useRef(null);
 
   const { state } = useLocation();
   const navigate = useNavigate();
 
   function handleMove(location) {
-    location.current?.scrollIntoView({ behavior: "smooth" });
+    location.current?.scrollIntoView({
+      behavior: "smooth",
+      // block: "start",
+      // inline: "nearest",
+    });
   }
 
   useEffect(() => {
@@ -47,7 +42,9 @@ function Home() {
           ? refHome
           : state.location === "about"
             ? refAbout
-            : refProject,
+            : state.location === "project"
+              ? refProject
+              : refHome,
       );
       navigate("/", {}); // clear state
     }
@@ -55,69 +52,36 @@ function Home() {
 
   return (
     <>
-      {/* <nav>
-        <ul>
-          <li onClick={() => handleMove(refHome)}>😇</li>
-          <li onClick={() => handleMove(refAbout)}>about</li>
-          <li onClick={() => handleMove(refProject)}>project</li>
-          <li onClick={() => handleMove(refContact)}>contact</li>
-        </ul>
-      </nav> */}
-
-      <header ref={refHome} className="border-b-[1px] border-black/10">
-        <div className="flex items-center justify-between px-6 py-4">
-          <ul>
-            <li
-              onClick={() => handleMove(refHome)}
-              className="pointerhover:hover:scale-x-105 cursor-pointer text-2xl"
-            >
-              😇
-            </li>
-          </ul>
-          <ul className="flex items-center gap-4">
-            <li className="flex rounded-full bg-black/5 p-1">
-              <div className="rounded-full bg-black/10 px-2 py-1">
-                <IoMoonOutline />
-              </div>
-              <div className="rounded-full px-2 py-1">
-                <IoSunnyOutline />
-              </div>
-            </li>
-            <li>
-              <IoMenuOutline className="pointerhover:hover:text-primary cursor-pointer text-2xl" />
-            </li>
-          </ul>
-        </div>
-      </header>
+      <Header ref={refHome} />
 
       <main>
-        <section className="flex flex-col gap-12 px-12 py-16">
-          <h3 className="mobile-h3 inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-center text-transparent">
+        <section className="flex flex-col items-center gap-12 px-12 py-16">
+          {/* <h3 className="mobile-h3 inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-center text-transparent">
             Hey there, I&apos;m Olivia.
           </h3>
-          <h1 className="mobile-h1 text-center">Frontend Web Developer</h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
-            laborum a quas. Quia sequi neque atque excepturi cum corporis,
-            itaque dolor magni. Ducimus temporibus, provident quisquam quo rerum
-            similique hic.
-          </p>
-          {/* <button
-            onClick={() => handleMove(refAbout)}
-            className="mobile-h6-small self-center rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-white shadow-xl"
-          >
-            <span>More about me</span>
-            <IoArrowDownOutline className="ml-2 inline" />
-          </button> */}
+          <h1 className="mobile-h1 text-center">Frontend Web Developer</h1> */}
+          <h3 className="mobile-h3 dark:from-darkPrimary dark:to-darkSecondary inline-block bg-gradient-to-r from-primary to-secondary box-decoration-clone bg-clip-text text-center text-transparent">
+            안녕하세요!
+            <br />
+            저는 프론트엔드 개발자
+          </h3>
+
+          <h1 className="mobile-h1 inline text-center dark:text-white/90">
+            이정옥입니다
+          </h1>
+
+          <p className="dark:text-white/90">만들고 싶은 것을 코딩합니다✨💫</p>
+
           <PrimaryBtn handleClick={() => handleMove(refAbout)}>
-            <span>More about me</span>
+            {/* <span>More about me</span> */}
+            <span>더 알아보기</span>
             <IoArrowDownOutline />
           </PrimaryBtn>
         </section>
 
         <section
           ref={refAbout}
-          className="flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16"
+          className="dark:from-darkPrimary/50 dark:to-darkSecondary/50 flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16 dark:text-white/90"
         >
           <div className="px-12">
             <img
@@ -129,13 +93,19 @@ function Home() {
 
           <div className="flex w-full flex-col gap-12 px-6">
             <div className="flex flex-col gap-8">
-              <h3 className="mobile-h3-bold">About me</h3>
+              <h3 className="mobile-h3-bold">About Me</h3>
 
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                quibusdam possimus veniam laboriosam, saepe neque officia rem
-                deleniti tempore illo eaque nesciunt placeat quo veritatis
-                libero qui quaerat iusto. Quas!
+              <div className="indent-2">
+                <p>
+                  안녕하세요. 저는 React를 사용하는 프론트엔드 개발자
+                  이정옥입니다. 만들고 싶은 것을 만들고 있어요. 특히 패션과
+                  음악을 좋아해서 관련된 프로젝트에 제 애정을 가득 담았습니다.
+                </p>
+                <p>
+                  최근에는 UI 디자인을 공부하며 Figma로 보고 계신 이 웹사이트를
+                  새로 디자인했습니다. 그리고 모바일 앱에 관심이 생겨 React
+                  Native를 공부하고 있습니다.
+                </p>
               </div>
             </div>
 
@@ -195,12 +165,11 @@ function Home() {
         </section>
 
         <section ref={refProject} className="py-16">
-          <div className="mb-16 px-12 text-center">
+          <div className="mb-16 px-12 text-center dark:text-white/90">
             <h3 className="mobile-h3-bold mb-6">My Projects</h3>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
-              porro velit architecto, asperiores atque unde? Nisi cupiditate
-              necessitatibus pariatur
+              React와 JavaScript로 만든 프로젝트입니다. 자세히 알아보기 버튼을
+              눌러보세요 😇
             </p>
           </div>
 
@@ -223,7 +192,8 @@ function Home() {
                 <SecondaryBtn
                   handleClick={() => navigate("/project/ollyscloset")}
                 >
-                  <span>View case</span>
+                  {/* <span>View case</span> */}
+                  <span>자세히 알아보기</span>
                   <IoArrowForwardOutline className="inline" />
                 </SecondaryBtn>
               </div>
@@ -245,7 +215,8 @@ function Home() {
                 </div>
 
                 <SecondaryBtn handleClick={() => navigate("/project/todolist")}>
-                  <span>View case</span>
+                  {/* <span>View case</span> */}
+                  <span>자세히 알아보기</span>
                   <IoArrowForwardOutline className="ml-4 inline" />
                 </SecondaryBtn>
               </div>
@@ -271,7 +242,8 @@ function Home() {
                 <SecondaryBtn
                   handleClick={() => navigate("/project/singstreet")}
                 >
-                  <span>View case</span>
+                  {/* <span>View case</span> */}
+                  <span>자세히 알아보기</span>
                   <IoArrowForwardOutline className="ml-4 inline" />
                 </SecondaryBtn>
               </div>
@@ -279,70 +251,6 @@ function Home() {
           </div>
         </section>
       </main>
-
-      {/* <Footer
-        ref={refContact}
-        handleMove={handleMove}
-        refHome={refHome}
-        refAbout={refAbout}
-        refProject={refProject}
-        refContact={refContact}
-      /> */}
-
-      <Contact ref={refContact} />
-
-      <footer className="px-6 py-8">
-        <nav className="mb-3">
-          <ul className="mobile-h6-small-regular flex justify-between">
-            <li
-              className="pointerhover:hover:scale-x-105 cursor-pointer"
-              onClick={() => handleMove(refHome)}
-            >
-              😇
-            </li>
-            <li
-              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
-              onClick={() => handleMove(refAbout)}
-            >
-              About Me
-            </li>
-            <li
-              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
-              onClick={() => handleMove(refProject)}
-            >
-              My Projects
-            </li>
-            <li
-              className="pointerhover:hover:font-semibold pointerhover:hover:text-primary cursor-pointer"
-              onClick={() => handleMove(refContact)}
-            >
-              Contact
-            </li>
-          </ul>
-        </nav>
-
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-wrap">
-            <span className="mr-4">&copy; Copyright Olivia Lee 2024.</span>
-            <span>All rights reserved.</span>
-          </div>
-          <div className="flex flex-wrap">
-            <span className="mr-4">Privacy Policy</span>
-            <span>Terms &amp; Conditions</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="mobile-h6-small text-primary">
-              olivia.jeongok.lee@gmail.com
-            </span>
-            <Link to="https://github.com/ok-olly">
-              <SiGithub className="pointerhover:hover:text-primary cursor-pointer" />
-            </Link>
-            <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
-              <SiLinkedin className="pointerhover:hover:text-primary cursor-pointer" />
-            </Link>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

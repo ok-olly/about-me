@@ -12,6 +12,10 @@ export default {
         primary: "#6B8F36",
         secondary: "#415723",
         black: "#261F22",
+        // darkPrimary: "#C2FF16",
+        darkPrimary: "#92C10E",
+        // darkSecondary: "#60FF17",
+        darkSecondary: "#4EC717",
       },
       screens: {
         pointerhover: {
