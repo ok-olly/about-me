@@ -13,14 +13,15 @@ export default {
         secondary: "#415723",
         black: "#261F22",
         // darkPrimary: "#C2FF16",
-        darkPrimary: "#92C10E",
         // darkSecondary: "#60FF17",
+        darkPrimary: "#92C10E",
         darkSecondary: "#4EC717",
       },
       screens: {
         pointerhover: {
           raw: "(hover: hover) and (pointer: fine)",
         },
+        "3xl": "1800px",
       },
     },
   },

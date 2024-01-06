@@ -13,7 +13,7 @@ const Header = forwardRef((props, ref) => {
       className="border-b-[1px] border-black/10 dark:border-white/50"
     >
       <div className="flex items-center justify-between px-6 py-4">
-        <ul>
+        <ul className="mobile-h6-small-regular flex items-center gap-6">
           <li
             onClick={() =>
               navigate("/", {
@@ -25,6 +25,38 @@ const Header = forwardRef((props, ref) => {
             className="cursor-pointer text-2xl pointerhover:hover:scale-x-105"
           >
             😇
+          </li>
+          <li
+            className="pointerhover:dark:hover:text-darkPrimary hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary"
+            onClick={() =>
+              navigate("/", {
+                state: {
+                  location: "about",
+                },
+              })
+            }
+          >
+            About Me
+          </li>
+          <li
+            className="pointerhover:dark:hover:text-darkPrimary hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary"
+            onClick={() =>
+              navigate("/", {
+                state: {
+                  location: "project",
+                },
+              })
+            }
+          >
+            My Projects
+          </li>
+          <li
+            className="pointerhover:dark:hover:text-darkPrimary hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary"
+            onClick={() =>
+              refContact.current?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Contact
           </li>
         </ul>
         <ul className="flex items-center gap-4">

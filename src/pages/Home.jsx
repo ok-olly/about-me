@@ -37,16 +37,21 @@ function Home() {
 
   useEffect(() => {
     if (state) {
-      handleMove(
+      const targetRef =
         state.location === "home"
           ? refHome
           : state.location === "about"
             ? refAbout
             : state.location === "project"
               ? refProject
-              : refHome,
-      );
-      navigate("/", {}); // clear state
+              : refHome;
+
+      const timeoutId = setTimeout(() => {
+        handleMove(targetRef);
+        navigate("/", {});
+      }, 300);
+
+      return () => clearTimeout(timeoutId);
     }
   }, [state, navigate]);
 
@@ -60,7 +65,7 @@ function Home() {
             Hey there, I&apos;m Olivia.
           </h3>
           <h1 className="mobile-h1 text-center">Frontend Web Developer</h1> */}
-          <h3 className="mobile-h3 dark:from-darkPrimary dark:to-darkSecondary inline-block bg-gradient-to-r from-primary to-secondary box-decoration-clone bg-clip-text text-center text-transparent">
+          <h3 className="mobile-h3 inline-block bg-gradient-to-r from-primary to-secondary box-decoration-clone bg-clip-text text-center text-transparent dark:from-darkPrimary dark:to-darkSecondary">
             안녕하세요!
             <br />
             저는 프론트엔드 개발자
@@ -81,7 +86,7 @@ function Home() {
 
         <section
           ref={refAbout}
-          className="dark:from-darkPrimary/50 dark:to-darkSecondary/50 flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16 dark:text-white/90"
+          className="flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16 dark:from-darkPrimary/20 dark:to-darkSecondary/20 dark:text-white/90"
         >
           <div className="px-12">
             <img
