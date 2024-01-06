@@ -1,7 +1,6 @@
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
-import Footer from "./components/Footer";
 import Home from "../src/pages/Home";
 import WorkDetail from "./pages/WorkDetail";
 import Error from "../src/pages/Error";
@@ -13,7 +12,6 @@ function AppLayout() {
     <div className="mobile-p bg-white text-black dark:bg-black">
       <ScrollToTop />
       <Outlet />
-      <Footer />
     </div>
   );
 }

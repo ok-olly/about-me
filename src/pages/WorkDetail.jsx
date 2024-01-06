@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import {
   SiHtml5,
@@ -12,6 +12,7 @@ import {
   SiVite,
   SiGithub,
   SiLeaflet,
+  SiLinkedin,
 } from "react-icons/si";
 
 import { IoArrowBackOutline } from "react-icons/io5";
@@ -19,7 +20,9 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import SimpleSlider from "../components/SimpleSlider";
 import PrimaryBtn from "../components/PrimaryBtn";
 import SecondaryBtn from "../components/SecondaryBtn";
-import Header from "../components/Header";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+import Contact from "../components/Contact";
+import { useRef } from "react";
 
 const work = [
   {
@@ -179,65 +182,183 @@ function WorkDetail() {
 
   const navigate = useNavigate();
 
+  const refContact = useRef(null);
+
   return (
     <>
-      <Header />
+      <header className="border-b-[1px] border-black/10 dark:border-white/50">
+        <nav className="flex items-center justify-between px-6 py-4">
+          <ul className="mobile-h6-small-regular flex items-center gap-6 lg:gap-8">
+            <li
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "home",
+                  },
+                })
+              }
+              className="cursor-pointer text-2xl pointerhover:hover:scale-x-105"
+            >
+              😇
+            </li>
+            <li
+              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "about",
+                  },
+                })
+              }
+            >
+              About Me
+            </li>
+            <li
+              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "project",
+                  },
+                })
+              }
+            >
+              My Projects
+            </li>
+            <li
+              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() =>
+                refContact.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Contact
+            </li>
+          </ul>
+          <ul className="flex items-center gap-6 lg:gap-8">
+            <li>
+              <ThemeSwitcher />
+              {/* <div className="flex rounded-full bg-black/5 p-1">
+          <div className="rounded-full bg-black/10 px-2 py-1">
+            <IoMoonOutline />
+          </div>
+          <div className="rounded-full px-2 py-1">
+            <IoSunnyOutline />
+          </div>
+        </div> */}
+            </li>
+            {/* <li>
+        <IoMenuOutline className="cursor-pointer text-2xl pointerhover:hover:text-primary" />
+      </li> */}
 
-      <div className="px-6 py-16 dark:text-white/90">
+            <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary lg:inline-block">
+              olivia.jeongok.lee@gmail.com
+            </li>
+            <li className="hidden lg:inline-block">
+              <Link to="https://github.com/ok-olly">
+                <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+            <li className="hidden lg:inline-block">
+              <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
+                <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div className="px-6 py-16 dark:text-white/90 sm:px-12 lg:px-24 lg:py-32">
         <div className="w-full">
           <SimpleSlider image={data.img} />
         </div>
 
-        <div className="flex flex-col gap-12 py-16">
-          <div>
-            <h1 className="mobile-h3-bold mb-6">{data.title}</h1>
-            <p className="indent-2">{data.desc2}</p>
-          </div>
+        <div className="flex flex-col gap-12 py-16 lg:flex-row lg:gap-24 lg:py-32">
+          <div className="lg:w-1/2">
+            <div>
+              <h1 className="mobile-h3-bold mb-6 lg:mb-12">{data.title}</h1>
+              <p className="indent-2">{data.desc2}</p>
+            </div>
 
-          <div>
-            <h5 className="mobile-h5 mb-6">Key Features</h5>
-            <ul className="list-outside list-disc pl-6">
-              {data.features.map((el, i) => (
-                <li key={i}>{el}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h5 className="mobile-h5 mb-6">Tools</h5>
-
-            <div className="flex flex-wrap gap-2">
-              {data.tool.map((t) => (
-                <div
-                  key={t.id}
-                  className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10"
+            <div className="mt-12 hidden lg:block lg:flex-row">
+              <div className="mb-6 flex flex-col items-start gap-6">
+                <PrimaryBtn
+                  isStretch={false}
+                  handleClick={() =>
+                    window.open(data.url1, "_blank", "noopener, noreferrer")
+                  }
                 >
-                  {t.logo}
-                  <span>{t.id}</span>
-                </div>
-              ))}
+                  <span>🛍️</span>
+                  <span>View project</span>
+                </PrimaryBtn>
+
+                <SecondaryBtn
+                  handleClick={() =>
+                    window.open(data.url2, "_blank", "noopener, noreferrer")
+                  }
+                >
+                  <SiGithub />
+                  <span>Visit github</span>
+                </SecondaryBtn>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => navigate(-1)}
+                className="self-start text-black/50 dark:text-white/90 pointerhover:hover:underline"
+              >
+                <IoArrowBackOutline className="mr-2 inline -translate-y-0.5" />
+                <span>Go back</span>
+              </button>
             </div>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <PrimaryBtn
-              isStretch={true}
-              handleClick={() =>
-                window.open(data.url1, "_blank", "noopener, noreferrer")
-              }
-            >
-              <span>🛍️</span>
-              <span>View project</span>
-            </PrimaryBtn>
+          <div className="lg:w-1/2">
+            <div className="mb-12">
+              <h5 className="mobile-h5 mb-6">Key Features</h5>
+              <ul className="list-outside list-disc pl-6">
+                {data.features.map((el, i) => (
+                  <li key={i}>{el}</li>
+                ))}
+              </ul>
+            </div>
 
-            <SecondaryBtn
-              handleClick={() =>
-                window.open(data.url2, "_blank", "noopener, noreferrer")
-              }
-            >
-              <SiGithub />
-              <span>Visit github</span>
-            </SecondaryBtn>
+            <div>
+              <h5 className="mobile-h5 mb-6">Tools</h5>
+              <div className="flex flex-wrap gap-2 lg:gap-4">
+                {data.tool.map((t) => (
+                  <div
+                    key={t.id}
+                    className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10"
+                  >
+                    {t.logo}
+                    <span>{t.id}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:hidden">
+            <div className="mb-6 flex flex-col gap-6">
+              <PrimaryBtn
+                isStretch={true}
+                handleClick={() =>
+                  window.open(data.url1, "_blank", "noopener, noreferrer")
+                }
+              >
+                <span>🛍️</span>
+                <span>View project</span>
+              </PrimaryBtn>
+
+              <SecondaryBtn
+                handleClick={() =>
+                  window.open(data.url2, "_blank", "noopener, noreferrer")
+                }
+              >
+                <SiGithub />
+                <span>Visit github</span>
+              </SecondaryBtn>
+            </div>
 
             <button
               type="button"
@@ -250,6 +371,88 @@ function WorkDetail() {
           </div>
         </div>
       </div>
+
+      <footer>
+        <Contact ref={refContact} />
+
+        <div className="flex flex-col gap-3 px-6 py-8 dark:text-white/90 md:flex-row md:flex-wrap md:justify-between">
+          <nav>
+            <ul className="mobile-h6-small-regular flex justify-between sm:justify-start sm:gap-6 lg:gap-8 ">
+              <li
+                className="cursor-pointer pointerhover:hover:scale-x-105"
+                onClick={() =>
+                  navigate("/", {
+                    state: {
+                      location: "home",
+                    },
+                  })
+                }
+              >
+                😇
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() =>
+                  navigate("/", {
+                    state: {
+                      location: "about",
+                    },
+                  })
+                }
+              >
+                About Me
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() =>
+                  navigate("/", {
+                    state: {
+                      location: "project",
+                    },
+                  })
+                }
+              >
+                My Projects
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() =>
+                  refContact.current?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Contact
+              </li>
+            </ul>
+          </nav>
+
+          {/* <div className="flex flex-col gap-3"> */}
+          <div className="flex flex-wrap">
+            <span className="mr-4">&copy; Copyright Olivia Lee 2024.</span>
+            <span>All rights reserved.</span>
+          </div>
+
+          <div className="flex flex-wrap">
+            <span className="mr-4">Privacy Policy</span>
+            <span>Terms &amp; Conditions</span>
+          </div>
+
+          <ul className="flex items-center gap-6 lg:gap-8">
+            <li className="mobile-h6-small text-primary dark:text-darkPrimary">
+              olivia.jeongok.lee@gmail.com
+            </li>
+            <li>
+              <Link to="https://github.com/ok-olly">
+                <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
+                <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </footer>
     </>
   );
 }

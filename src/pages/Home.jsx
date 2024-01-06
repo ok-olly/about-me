@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
 import {
@@ -11,18 +11,22 @@ import {
   SiReact,
   SiRedux,
   SiGit,
+  SiGithub,
+  SiLinkedin,
 } from "react-icons/si";
 
 import { IoArrowDownOutline, IoArrowForwardOutline } from "react-icons/io5";
 
 import PrimaryBtn from "../components/PrimaryBtn";
 import SecondaryBtn from "../components/SecondaryBtn";
-import Header from "../components/Header";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+import Contact from "../components/Contact";
 
 function Home() {
   const refHome = useRef(null);
   const refAbout = useRef(null);
   const refProject = useRef(null);
+  const refContact = useRef(null);
 
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -44,7 +48,9 @@ function Home() {
             ? refAbout
             : state.location === "project"
               ? refProject
-              : refHome;
+              : state.location === "contact"
+                ? refContact
+                : refHome;
 
       const timeoutId = setTimeout(() => {
         handleMove(targetRef);
@@ -57,10 +63,72 @@ function Home() {
 
   return (
     <>
-      <Header ref={refHome} />
+      <header
+        ref={refHome}
+        className="border-b-[1px] border-black/10 dark:border-white/50"
+      >
+        <nav className="flex items-center justify-between px-6 py-4">
+          <ul className="mobile-h6-small-regular flex items-center gap-6 lg:gap-8">
+            <li
+              onClick={() => handleMove(refHome)}
+              className="cursor-pointer text-2xl pointerhover:hover:scale-x-105"
+            >
+              😇
+            </li>
+            <li
+              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() => handleMove(refAbout)}
+            >
+              About Me
+            </li>
+            <li
+              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() => handleMove(refProject)}
+            >
+              My Projects
+            </li>
+            <li
+              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() => handleMove(refContact)}
+            >
+              Contact
+            </li>
+          </ul>
+          <ul className="flex items-center gap-6 lg:gap-8">
+            <li>
+              <ThemeSwitcher />
+              {/* <div className="flex rounded-full bg-black/5 p-1">
+              <div className="rounded-full bg-black/10 px-2 py-1">
+                <IoMoonOutline />
+              </div>
+              <div className="rounded-full px-2 py-1">
+                <IoSunnyOutline />
+              </div>
+            </div> */}
+            </li>
+            {/* <li>
+            <IoMenuOutline className="cursor-pointer text-2xl pointerhover:hover:text-primary" />
+          </li> */}
+
+            <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary lg:inline-block">
+              olivia.jeongok.lee@gmail.com
+            </li>
+            <li className="hidden lg:inline-block">
+              <Link to="https://github.com/ok-olly">
+                <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+            <li className="hidden lg:inline-block">
+              <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
+                <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
       <main>
-        <section className="flex flex-col items-center gap-12 px-12 py-16">
+        <section className="flex flex-col items-center gap-12 px-12 py-16 lg:py-40">
           {/* <h3 className="mobile-h3 inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-center text-transparent">
             Hey there, I&apos;m Olivia.
           </h3>
@@ -86,9 +154,9 @@ function Home() {
 
         <section
           ref={refAbout}
-          className="flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16 dark:from-darkPrimary/20 dark:to-darkSecondary/20 dark:text-white/90"
+          className="flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16 dark:from-darkPrimary/20 dark:to-darkSecondary/20 dark:text-white/90 lg:flex-row lg:gap-32 lg:px-32 lg:py-40"
         >
-          <div className="px-12">
+          <div className="px-12 sm:w-1/2 sm:self-center sm:px-6 lg:w-2/3 lg:px-0">
             <img
               src="./img/profile.jpg"
               alt="profile-picture"
@@ -96,63 +164,72 @@ function Home() {
             />
           </div>
 
-          <div className="flex w-full flex-col gap-12 px-6">
-            <div className="flex flex-col gap-8">
+          <div className="flex w-full flex-col gap-12 px-6 sm:px-12 lg:gap-16 lg:px-0">
+            <div className="flex flex-col gap-8 lg:gap-12">
               <h3 className="mobile-h3-bold">About Me</h3>
 
               <div className="indent-2">
                 <p>
                   안녕하세요. 저는 React를 사용하는 프론트엔드 개발자
-                  이정옥입니다. 만들고 싶은 것을 만들고 있어요. 특히 패션과
-                  음악을 좋아해서 관련된 프로젝트에 제 애정을 가득 담았습니다.
+                  이정옥입니다. 만들고 싶은 것을 만들고 있어요. 최근에는 UI
+                  디자인을 공부하며 Figma로 보고 계신 이 웹사이트를 새로
+                  디자인했습니다. 그리고 모바일 앱에 관심이 생겨 React Native를
+                  공부하고 있습니다.
                 </p>
                 <p>
-                  최근에는 UI 디자인을 공부하며 Figma로 보고 계신 이 웹사이트를
-                  새로 디자인했습니다. 그리고 모바일 앱에 관심이 생겨 React
-                  Native를 공부하고 있습니다.
+                  협업은 언제나 환영입니다! 아래 폼으로 메세지를 남겨주세요 😊
                 </p>
               </div>
+
+              <button
+                type="button"
+                onClick={() => handleMove(refContact)}
+                className="self-start text-white/90 dark:text-white/90 pointerhover:hover:underline"
+              >
+                <span>메세지 남기러 가기</span>
+                <IoArrowDownOutline className="ml-2 inline -translate-y-0.5" />
+              </button>
             </div>
 
             <div>
-              <h5 className="mobile-h5 mb-4">Skills</h5>
+              <h5 className="mobile-h5 mb-4 lg:mb-8">Skills</h5>
 
-              <div className="flex flex-wrap gap-2">
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+              <div className="flex flex-wrap gap-2 lg:gap-4">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiReact className="mr-4 inline -translate-y-0.5 text-2xl text-[#61DAFB]" />
-                  <span className="">React</span>
+                  <span>React</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiRedux className="mr-4 inline -translate-y-0.5 text-2xl text-[#764ABC]" />
-                  <span className="">Redux</span>
+                  <span>Redux</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiJavascript className="mr-4 inline -translate-y-0.5 text-2xl text-[#F7DF1E]" />
-                  <span className="">JavaScript</span>
+                  <span>JavaScript</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiTailwindcss className="mr-4 inline -translate-y-0.5 text-2xl text-[#06B6D4]" />
-                  <span className="">Tailwind CSS</span>
+                  <span>Tailwind CSS</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiStyledcomponents className="mr-4 inline -translate-y-0.5 text-2xl text-[#DB7093]" />
-                  <span className="">styled-components</span>
+                  <span>styled-components</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiSass className="mr-4 inline -translate-y-0.5 text-2xl text-[#CC6699]" />
-                  <span className="">Sass</span>
+                  <span>Sass</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiCss3 className="mr-4 inline -translate-y-0.5 text-2xl text-[#1572B6]" />
-                  <span className="">CSS3</span>
+                  <span>CSS3</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiHtml5 className="mr-4 inline -translate-y-0.5 text-2xl text-[#E34F26]" />
-                  <span className="">HTML5</span>
+                  <span>HTML5</span>
                 </div>
-                <div className="inline-block rounded-lg bg-black/10 px-4 py-2">
+                <div className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10">
                   <SiGit className="mr-4 inline -translate-y-0.5 text-2xl text-[#F05032]" />
-                  <span className="">Git</span>
+                  <span>Git</span>
                 </div>
               </div>
             </div>
@@ -169,18 +246,19 @@ function Home() {
           </div>
         </section>
 
-        <section ref={refProject} className="py-16">
+        <section ref={refProject} className="py-16 lg:py-32">
           <div className="mb-16 px-12 text-center dark:text-white/90">
             <h3 className="mobile-h3-bold mb-6">My Projects</h3>
             <p>
-              React와 JavaScript로 만든 프로젝트입니다. 자세히 알아보기 버튼을
-              눌러보세요 😇
+              React와 JavaScript로 만든 프로젝트입니다.
+              <br />
+              자세히 알아보기 버튼을 눌러보세요 😇
             </p>
           </div>
 
           <div>
-            <article className="bg-[#363642] py-12">
-              <div className="mb-12 px-6">
+            <article className="bg-[#363642] py-12 lg:py-24">
+              <div className="mb-12 px-6 sm:px-12 lg:px-24">
                 <img
                   src="./img/ollycloset/desktop01.png"
                   alt="project1-thumbnail"
@@ -188,8 +266,8 @@ function Home() {
                 />
               </div>
 
-              <div className="flex flex-col gap-12 px-12 text-center">
-                <div className="text-white">
+              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:px-24 lg:px-32">
+                <div className="text-white md:text-start">
                   <h4 className="mobile-h4 mb-6">Olly&apos;s Closet</h4>
                   <h5 className="mobile-h5-regular">E-commerce store</h5>
                 </div>
@@ -204,8 +282,8 @@ function Home() {
               </div>
             </article>
 
-            <article className="bg-[#FFEF8A] py-12">
-              <div className="mb-12 px-6">
+            <article className="bg-[#FFEF8A] py-12 lg:py-24">
+              <div className="mb-12 px-6 sm:px-12 lg:px-24">
                 <img
                   src="./img/todolist/desktop01.png"
                   alt="project2-thumbnail"
@@ -213,8 +291,8 @@ function Home() {
                 />
               </div>
 
-              <div className="flex flex-col gap-12 px-12 text-center">
-                <div>
+              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:px-24 lg:px-32">
+                <div className="md:text-start">
                   <h4 className="mobile-h4 mb-6">To-Do List</h4>
                   <h5 className="mobile-h5-regular">To do list web app</h5>
                 </div>
@@ -227,8 +305,8 @@ function Home() {
               </div>
             </article>
 
-            <article className="bg-[#D1CBD0] py-12">
-              <div className="mb-12 px-6">
+            <article className="bg-[#D1CBD0] py-12 lg:py-24">
+              <div className="mb-12 px-6 sm:px-12 lg:px-24">
                 <img
                   src="./img/singstreet/desktop01.png"
                   alt="project3-thumbnail"
@@ -236,8 +314,8 @@ function Home() {
                 />
               </div>
 
-              <div className="flex flex-col gap-12 px-12 text-center">
-                <div>
+              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:px-24 lg:px-32">
+                <div className="md:text-start">
                   <h4 className="mobile-h4 mb-6">Sing Street</h4>
                   <h5 className="mobile-h5-regular">
                     Movie filming location map
@@ -256,6 +334,68 @@ function Home() {
           </div>
         </section>
       </main>
+
+      <footer>
+        <Contact ref={refContact} />
+
+        <div className="flex flex-col gap-3 px-6 py-8 dark:text-white/90 md:flex-row md:flex-wrap md:justify-between">
+          <nav>
+            <ul className="mobile-h6-small-regular flex justify-between sm:justify-start sm:gap-6 lg:gap-8 ">
+              <li
+                className="cursor-pointer pointerhover:hover:scale-x-105"
+                onClick={() => handleMove(refHome)}
+              >
+                😇
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() => handleMove(refAbout)}
+              >
+                About Me
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() => handleMove(refProject)}
+              >
+                My Projects
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() => handleMove(refContact)}
+              >
+                Contact
+              </li>
+            </ul>
+          </nav>
+
+          {/* <div className="flex flex-col gap-3"> */}
+          <div className="flex flex-wrap">
+            <span className="mr-4">&copy; Copyright Olivia Lee 2024.</span>
+            <span>All rights reserved.</span>
+          </div>
+
+          <div className="flex flex-wrap">
+            <span className="mr-4">Privacy Policy</span>
+            <span>Terms &amp; Conditions</span>
+          </div>
+
+          <ul className="flex items-center gap-6 lg:gap-8">
+            <li className="mobile-h6-small text-primary dark:text-darkPrimary">
+              olivia.jeongok.lee@gmail.com
+            </li>
+            <li>
+              <Link to="https://github.com/ok-olly">
+                <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
+                <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </footer>
     </>
   );
 }
