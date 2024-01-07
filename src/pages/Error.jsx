@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import { SiGithub, SiLinkedin } from "react-icons/si";
@@ -62,31 +62,33 @@ function Error() {
           <ul className="flex items-center gap-6">
             <li>
               <ThemeSwitcher />
-              {/* <div className="flex rounded-full bg-black/5 p-1">
-              <div className="rounded-full bg-black/10 px-2 py-1">
-                <IoMoonOutline />
-              </div>
-              <div className="rounded-full px-2 py-1">
-                <IoSunnyOutline />
-              </div>
-            </div> */}
             </li>
-            {/* <li>
-            <IoMenuOutline className="cursor-pointer text-2xl pointerhover:hover:text-primary" />
-          </li> */}
-
             <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary xl:inline-block">
               olivia.jeongok.lee@gmail.com
             </li>
-            <li className="hidden xl:inline-block">
-              <Link to="https://github.com/ok-olly">
-                <SiGithub className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
-              </Link>
+            <li
+              className="hidden xl:inline-block"
+              onClick={() =>
+                window.open(
+                  "https://github.com/ok-olly",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiGithub className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
             </li>
-            <li className="hidden xl:inline-block">
-              <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
-                <SiLinkedin className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
-              </Link>
+            <li
+              className="hidden xl:inline-block"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/olivia-jeongok-lee",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiLinkedin className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
             </li>
           </ul>
         </nav>
@@ -156,7 +158,6 @@ function Error() {
             </ul>
           </nav>
 
-          {/* <div className="flex flex-col gap-3"> */}
           <div className="flex flex-wrap">
             <span className="mr-4">&copy; Copyright Olivia Lee 2024.</span>
             <span>All rights reserved.</span>
@@ -171,15 +172,27 @@ function Error() {
             <li className="mobile-h6-small text-primary dark:text-darkPrimary">
               olivia.jeongok.lee@gmail.com
             </li>
-            <li>
-              <Link to="https://github.com/ok-olly">
-                <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
-              </Link>
+            <li
+              onClick={() =>
+                window.open(
+                  "https://github.com/ok-olly",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
             </li>
-            <li>
-              <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
-                <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
-              </Link>
+            <li
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/olivia-jeongok-lee",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
             </li>
           </ul>
         </div>
