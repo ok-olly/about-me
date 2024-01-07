@@ -9,9 +9,11 @@ import { Toaster } from "react-hot-toast";
 
 function AppLayout() {
   return (
-    <div className="mobile-p bg-white text-black dark:bg-black">
-      <ScrollToTop />
-      <Outlet />
+    <div className="bg-secondary dark:bg-darkSecondary">
+      <div className="mobile-p m-auto max-w-screen-3xl bg-white text-black dark:bg-black">
+        <ScrollToTop />
+        <Outlet />
+      </div>
     </div>
   );
 }

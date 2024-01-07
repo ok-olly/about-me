@@ -26,7 +26,7 @@ function ThemeSwitcher() {
           darkMode ? "" : "bg-black/10 duration-500"
         }`}
       >
-        <IoMoonOutline className={`${darkMode ? "" : "opacity-0"}`} />
+        <IoMoonOutline className={`${darkMode ? "text-black" : "opacity-0"}`} />
       </div>
       <div className="rounded-full px-2 py-1 dark:bg-black/10 dark:duration-500">
         <IoSunnyOutline className="dark:opacity-0" />

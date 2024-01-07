@@ -65,10 +65,10 @@ function Home() {
     <>
       <header
         ref={refHome}
-        className="border-b-[1px] border-black/10 dark:border-white/50"
+        className="border-b-[1px] border-black/10 dark:border-white/50 dark:text-white/90"
       >
-        <nav className="flex items-center justify-between px-6 py-4">
-          <ul className="mobile-h6-small-regular flex items-center gap-6 lg:gap-8">
+        <nav className="flex items-center justify-between px-6 py-4 lg:px-12 3xl:px-16">
+          <ul className="mobile-h6-small-regular flex items-center gap-6">
             <li
               onClick={() => handleMove(refHome)}
               className="cursor-pointer text-2xl pointerhover:hover:scale-x-105"
@@ -76,25 +76,25 @@ function Home() {
               😇
             </li>
             <li
-              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
               onClick={() => handleMove(refAbout)}
             >
               About Me
             </li>
             <li
-              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
               onClick={() => handleMove(refProject)}
             >
               My Projects
             </li>
             <li
-              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
               onClick={() => handleMove(refContact)}
             >
               Contact
             </li>
           </ul>
-          <ul className="flex items-center gap-6 lg:gap-8">
+          <ul className="flex items-center gap-6">
             <li>
               <ThemeSwitcher />
               {/* <div className="flex rounded-full bg-black/5 p-1">
@@ -110,17 +110,17 @@ function Home() {
             <IoMenuOutline className="cursor-pointer text-2xl pointerhover:hover:text-primary" />
           </li> */}
 
-            <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary lg:inline-block">
+            <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary xl:inline-block">
               olivia.jeongok.lee@gmail.com
             </li>
-            <li className="hidden lg:inline-block">
+            <li className="hidden xl:inline-block">
               <Link to="https://github.com/ok-olly">
-                <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+                <SiGithub className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
               </Link>
             </li>
-            <li className="hidden lg:inline-block">
+            <li className="hidden xl:inline-block">
               <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
-                <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+                <SiLinkedin className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
               </Link>
             </li>
           </ul>
@@ -128,7 +128,7 @@ function Home() {
       </header>
 
       <main>
-        <section className="flex flex-col items-center gap-12 px-12 py-16 lg:py-40">
+        <section className="flex flex-col items-center gap-12 px-6 py-16 lg:py-24 xl:py-40 3xl:py-48">
           {/* <h3 className="mobile-h3 inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-center text-transparent">
             Hey there, I&apos;m Olivia.
           </h3>
@@ -139,8 +139,9 @@ function Home() {
             저는 프론트엔드 개발자
           </h3>
 
-          <h1 className="mobile-h1 inline text-center dark:text-white/90">
-            이정옥입니다
+          <h1 className="inline text-center dark:text-white/90">
+            <span className="mobile-h1">이정옥</span>
+            <span className="mobile-h5">입니다</span>
           </h1>
 
           <p className="dark:text-white/90">만들고 싶은 것을 코딩합니다✨💫</p>
@@ -154,9 +155,9 @@ function Home() {
 
         <section
           ref={refAbout}
-          className="flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16 dark:from-darkPrimary/20 dark:to-darkSecondary/20 dark:text-white/90 lg:flex-row lg:gap-32 lg:px-32 lg:py-40"
+          className="flex flex-col gap-12 bg-gradient-to-r from-primary/50 to-secondary/50 py-16 dark:from-darkPrimary/20 dark:to-darkSecondary/20 dark:text-white/90  lg:flex-row-reverse lg:px-12 lg:py-24 xl:py-40 3xl:gap-24 3xl:px-24 3xl:py-48"
         >
-          <div className="px-12 sm:w-1/2 sm:self-center sm:px-6 lg:w-2/3 lg:px-0">
+          <div className="px-12 sm:w-1/2 sm:self-center sm:px-6 lg:w-1/3 lg:px-0">
             <img
               src="./img/profile.jpg"
               alt="profile-picture"
@@ -164,8 +165,8 @@ function Home() {
             />
           </div>
 
-          <div className="flex w-full flex-col gap-12 px-6 sm:px-12 lg:gap-16 lg:px-0">
-            <div className="flex flex-col gap-8 lg:gap-12">
+          <div className="flex w-full flex-col gap-12 px-6 sm:px-12 lg:w-2/3 lg:px-0">
+            <div className="flex flex-col gap-8">
               <h3 className="mobile-h3-bold">About Me</h3>
 
               <div className="indent-2">
@@ -246,8 +247,8 @@ function Home() {
           </div>
         </section>
 
-        <section ref={refProject} className="py-16 lg:py-32">
-          <div className="mb-16 px-12 text-center dark:text-white/90">
+        <section ref={refProject} className="py-16 lg:py-24 xl:py-40 3xl:py-48">
+          <div className="mb-16 px-6 text-center dark:text-white/90 xl:mb-20 3xl:mb-24">
             <h3 className="mobile-h3-bold mb-6">My Projects</h3>
             <p>
               React와 JavaScript로 만든 프로젝트입니다.
@@ -258,7 +259,7 @@ function Home() {
 
           <div>
             <article className="bg-[#363642] py-12 lg:py-24">
-              <div className="mb-12 px-6 sm:px-12 lg:px-24">
+              <div className="mb-12 px-6 sm:px-12 lg:px-24 3xl:mb-24 ">
                 <img
                   src="./img/ollycloset/desktop01.png"
                   alt="project1-thumbnail"
@@ -266,7 +267,7 @@ function Home() {
                 />
               </div>
 
-              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:px-24 lg:px-32">
+              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:gap-0  lg:px-40 3xl:px-48 ">
                 <div className="text-white md:text-start">
                   <h4 className="mobile-h4 mb-6">Olly&apos;s Closet</h4>
                   <h5 className="mobile-h5-regular">E-commerce store</h5>
@@ -283,7 +284,7 @@ function Home() {
             </article>
 
             <article className="bg-[#FFEF8A] py-12 lg:py-24">
-              <div className="mb-12 px-6 sm:px-12 lg:px-24">
+              <div className="mb-12 px-6 sm:px-12 lg:px-24 3xl:mb-24">
                 <img
                   src="./img/todolist/desktop01.png"
                   alt="project2-thumbnail"
@@ -291,7 +292,7 @@ function Home() {
                 />
               </div>
 
-              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:px-24 lg:px-32">
+              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:gap-0  lg:px-40 3xl:px-48 ">
                 <div className="md:text-start">
                   <h4 className="mobile-h4 mb-6">To-Do List</h4>
                   <h5 className="mobile-h5-regular">To do list web app</h5>
@@ -306,7 +307,7 @@ function Home() {
             </article>
 
             <article className="bg-[#D1CBD0] py-12 lg:py-24">
-              <div className="mb-12 px-6 sm:px-12 lg:px-24">
+              <div className="mb-12 px-6 sm:px-12 lg:px-24 3xl:mb-24">
                 <img
                   src="./img/singstreet/desktop01.png"
                   alt="project3-thumbnail"
@@ -314,7 +315,7 @@ function Home() {
                 />
               </div>
 
-              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:px-24 lg:px-32">
+              <div className="flex flex-col gap-12 px-12 text-center sm:px-24 md:flex-row md:items-center md:justify-between md:gap-0  lg:px-40 3xl:px-48 ">
                 <div className="md:text-start">
                   <h4 className="mobile-h4 mb-6">Sing Street</h4>
                   <h5 className="mobile-h5-regular">
@@ -338,9 +339,9 @@ function Home() {
       <footer>
         <Contact ref={refContact} />
 
-        <div className="flex flex-col gap-3 px-6 py-8 dark:text-white/90 md:flex-row md:flex-wrap md:justify-between">
+        <div className="flex flex-col gap-3 px-6 py-8 dark:text-white/90 md:flex-row md:flex-wrap md:justify-between lg:px-12 3xl:px-16">
           <nav>
-            <ul className="mobile-h6-small-regular flex justify-between sm:justify-start sm:gap-6 lg:gap-8 ">
+            <ul className="mobile-h6-small-regular flex justify-between sm:justify-start sm:gap-6 ">
               <li
                 className="cursor-pointer pointerhover:hover:scale-x-105"
                 onClick={() => handleMove(refHome)}

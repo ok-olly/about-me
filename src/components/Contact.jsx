@@ -6,7 +6,7 @@ const Contact = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="mb-16 border-t-[1px] border-black/10 px-6 pt-16 dark:border-white/50 sm:px-12 lg:flex lg:items-center lg:justify-between lg:py-24"
+      className="border-t-[1px] border-black/10 px-6 py-16 dark:border-white/50 sm:px-12 lg:flex lg:items-center lg:justify-between lg:px-24 lg:py-24 xl:py-40 3xl:py-48"
     >
       <div className="mb-16 dark:text-white/90 lg:mb-0">
         <h4 className="mobile-h4 mb-8">

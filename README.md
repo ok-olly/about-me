@@ -27,7 +27,6 @@ This is a portfolio website encompassing all of my projects.
 <p align='center'>
 <img src="public/img/aboutme/mobile01.png" height='300px'>
 <img src="public/img/aboutme/mobile02.png" height='300px'>
-<img src="public/img/aboutme/mobile03.png" height='300px'>
 </p>
 
 저의 모든 프로젝트를 담은 포트폴리오 웹사이트입니다.

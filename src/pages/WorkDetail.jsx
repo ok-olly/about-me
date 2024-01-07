@@ -186,9 +186,9 @@ function WorkDetail() {
 
   return (
     <>
-      <header className="border-b-[1px] border-black/10 dark:border-white/50">
-        <nav className="flex items-center justify-between px-6 py-4">
-          <ul className="mobile-h6-small-regular flex items-center gap-6 lg:gap-8">
+      <header className="border-b-[1px] border-black/10 dark:border-white/50 dark:text-white/90">
+        <nav className="flex items-center justify-between px-6 py-4 lg:px-12 3xl:px-16">
+          <ul className="mobile-h6-small-regular flex items-center gap-6">
             <li
               onClick={() =>
                 navigate("/", {
@@ -202,7 +202,7 @@ function WorkDetail() {
               😇
             </li>
             <li
-              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
               onClick={() =>
                 navigate("/", {
                   state: {
@@ -214,7 +214,7 @@ function WorkDetail() {
               About Me
             </li>
             <li
-              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
               onClick={() =>
                 navigate("/", {
                   state: {
@@ -226,7 +226,7 @@ function WorkDetail() {
               My Projects
             </li>
             <li
-              className="hidden cursor-pointer dark:text-white/90 sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
               onClick={() =>
                 refContact.current?.scrollIntoView({ behavior: "smooth" })
               }
@@ -234,53 +234,53 @@ function WorkDetail() {
               Contact
             </li>
           </ul>
-          <ul className="flex items-center gap-6 lg:gap-8">
+          <ul className="flex items-center gap-6">
             <li>
               <ThemeSwitcher />
               {/* <div className="flex rounded-full bg-black/5 p-1">
-          <div className="rounded-full bg-black/10 px-2 py-1">
-            <IoMoonOutline />
-          </div>
-          <div className="rounded-full px-2 py-1">
-            <IoSunnyOutline />
-          </div>
-        </div> */}
+              <div className="rounded-full bg-black/10 px-2 py-1">
+                <IoMoonOutline />
+              </div>
+              <div className="rounded-full px-2 py-1">
+                <IoSunnyOutline />
+              </div>
+            </div> */}
             </li>
             {/* <li>
-        <IoMenuOutline className="cursor-pointer text-2xl pointerhover:hover:text-primary" />
-      </li> */}
+            <IoMenuOutline className="cursor-pointer text-2xl pointerhover:hover:text-primary" />
+          </li> */}
 
-            <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary lg:inline-block">
+            <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary xl:inline-block">
               olivia.jeongok.lee@gmail.com
             </li>
-            <li className="hidden lg:inline-block">
+            <li className="hidden xl:inline-block">
               <Link to="https://github.com/ok-olly">
-                <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+                <SiGithub className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
               </Link>
             </li>
-            <li className="hidden lg:inline-block">
+            <li className="hidden xl:inline-block">
               <Link to="https://www.linkedin.com/in/olivia-jeongok-lee">
-                <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+                <SiLinkedin className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
               </Link>
             </li>
           </ul>
         </nav>
       </header>
 
-      <div className="px-6 py-16 dark:text-white/90 sm:px-12 lg:px-24 lg:py-32">
+      <div className="px-6 py-16 dark:text-white/90 sm:px-12 lg:p-24">
         <div className="w-full">
           <SimpleSlider image={data.img} />
         </div>
 
-        <div className="flex flex-col gap-12 py-16 lg:flex-row lg:gap-24 lg:py-32">
-          <div className="lg:w-1/2">
+        <div className="flex flex-col gap-12 pt-16 lg:gap-16 lg:pt-32 xl:flex-row">
+          <div className="xl:w-1/2">
             <div>
               <h1 className="mobile-h3-bold mb-6 lg:mb-12">{data.title}</h1>
               <p className="indent-2">{data.desc2}</p>
             </div>
 
-            <div className="mt-12 hidden lg:block lg:flex-row">
-              <div className="mb-6 flex flex-col items-start gap-6">
+            <div className="mt-12 hidden gap-6 xl:flex xl:flex-col">
+              <div className="flex flex-col items-start gap-6 2xl:flex-row">
                 <PrimaryBtn
                   isStretch={false}
                   handleClick={() =>
@@ -312,7 +312,7 @@ function WorkDetail() {
             </div>
           </div>
 
-          <div className="lg:w-1/2">
+          <div className="xl:w-1/2">
             <div className="mb-12">
               <h5 className="mobile-h5 mb-6">Key Features</h5>
               <ul className="list-outside list-disc pl-6">
@@ -338,7 +338,7 @@ function WorkDetail() {
             </div>
           </div>
 
-          <div className="lg:hidden">
+          <div className="lg:px-48 xl:hidden">
             <div className="mb-6 flex flex-col gap-6">
               <PrimaryBtn
                 isStretch={true}
@@ -375,9 +375,9 @@ function WorkDetail() {
       <footer>
         <Contact ref={refContact} />
 
-        <div className="flex flex-col gap-3 px-6 py-8 dark:text-white/90 md:flex-row md:flex-wrap md:justify-between">
+        <div className="flex flex-col gap-3 px-6 py-8 dark:text-white/90 md:flex-row md:flex-wrap md:justify-between lg:px-12 3xl:px-16">
           <nav>
-            <ul className="mobile-h6-small-regular flex justify-between sm:justify-start sm:gap-6 lg:gap-8 ">
+            <ul className="mobile-h6-small-regular flex justify-between sm:justify-start sm:gap-6 ">
               <li
                 className="cursor-pointer pointerhover:hover:scale-x-105"
                 onClick={() =>
