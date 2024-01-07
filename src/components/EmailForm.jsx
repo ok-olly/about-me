@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import PrimaryBtn from "./PrimaryBtn";
+import { FaRegPaperPlane } from "react-icons/fa";
 
 function EmailForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,61 +35,63 @@ function EmailForm() {
   };
 
   return (
-    <div className="mt-2 w-72 text-base md:w-96">
+    <div>
       {isLoading ? (
-        <div className="relative h-80">
+        <div className="relative h-80 dark:bg-white/90">
           <span className="loader"></span>
         </div>
       ) : (
-        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-3">
+        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6">
           <div className="flex items-center">
-            <label htmlFor="to" className="w-1/5">
-              To:
+            <label htmlFor="to" className="mobile-h6 w-1/5 dark:text-white/90">
+              TO
             </label>
             <input
               id="to"
-              className="w-4/5 p-1 focus:outline-violet-500 dark:bg-neutral-600"
+              className="w-4/5 rounded-lg bg-black/10 p-3.5 dark:bg-white/90"
               value="olivia.jeongok.lee@gmail.com"
               readOnly
             />
           </div>
 
           <div className="flex items-center">
-            <label htmlFor="email" className="w-1/5">
-              From:
+            <label
+              htmlFor="email"
+              className="mobile-h6 w-1/5 dark:text-white/90"
+            >
+              FROM
             </label>
             <input
               id="email"
-              className="w-4/5 p-1 focus:outline-violet-500 dark:bg-neutral-600"
+              className="w-4/5 rounded-lg bg-black/10 p-3.5 dark:bg-white/90"
               type="email"
               name="user_email"
-              placeholder="Email"
+              placeholder="Your email address"
               required
             />
           </div>
 
           <input
-            className="p-1 focus:outline-violet-500 dark:bg-neutral-600"
+            className="rounded-lg bg-black/10 p-3.5 dark:bg-white/90"
             type="text"
             name="user_name"
-            placeholder="Name"
+            placeholder="Your name"
             required
           />
 
           <textarea
-            className="p-1 focus:outline-violet-500 dark:bg-neutral-600"
+            className="rounded-lg bg-black/10 p-3.5 dark:bg-white/90"
             name="message"
             placeholder="Message"
-            rows="7"
+            rows="5"
             required
           />
 
-          <input
-            type="submit"
-            value="Send"
-            className="cursor-pointer rounded-xl border-4 border-solid border-white p-1 transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:bg-violet-500 hover:text-white hover:shadow-xl focus:outline-violet-500 active:translate-y-0 active:border-violet-500 active:bg-violet-700 dark:hover:bg-violet-900"
-            disabled={isLoading}
-          />
+          <PrimaryBtn isDisabled={isLoading} isStretch={true}>
+            {/* Send message */}
+            메세지 전송하기
+            <FaRegPaperPlane />
+          </PrimaryBtn>
         </form>
       )}
     </div>

@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
 import {
   SiHtml5,
   SiSass,
@@ -11,19 +12,25 @@ import {
   SiVite,
   SiGithub,
   SiLeaflet,
+  SiLinkedin,
 } from "react-icons/si";
 
-import Heading from "../components/Heading";
+import { IoArrowBackOutline } from "react-icons/io5";
+
 import SimpleSlider from "../components/SimpleSlider";
-import Tooltips from "../components/Tooltips";
+import PrimaryBtn from "../components/PrimaryBtn";
+import SecondaryBtn from "../components/SecondaryBtn";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+import Contact from "../components/Contact";
+import { useRef } from "react";
 
 const work = [
   {
     id: "ollyscloset",
-    title: "Olly's Closet ↗",
+    title: "Olly's Closet",
     desc1: "E-Commerce Store (Responsive)",
     desc2:
-      "Supabase와 React를 활용하여 만든 온라인 쇼핑몰입니다. 실제로 명품 구매대행 회사에 근무하던 시절 직접 촬영했던 사진을 사용해서 프로젝트 동안 그때의 추억이 새록새록 떠올랐어요. 아직은 결제 기능이 구현되어 있지 않지만, 제가 나중에 사업을 하게 된다면 추가될 수도..? 앞으로 더 많은 기능과 업데이트가 기다리고 있습니다. 기대해 주세요!",
+      "React를 활용하여 만든 온라인 쇼핑몰입니다. 실제로 명품 구매대행 회사에 근무하던 시절 직접 촬영했던 사진을 사용했습니다. Supabase에 저장된 상품 정보를 받아와 화면에 보여주며 회원가입, 로그인, 회원정보 수정, 장바구니, 주문 기능을 구현했습니다.",
     img: [
       "/img/ollycloset/desktop01.png",
       "/img/ollycloset/desktop02.png",
@@ -35,15 +42,43 @@ const work = [
       "/img/ollycloset/mobile.png",
     ],
     tool: [
-      { id: 1, logo: <SiReact data-tooltip-id="react-icon" /> },
-      { id: 2, logo: <SiRedux data-tooltip-id="redux-icon" /> },
-      { id: 3, logo: <SiSupabase data-tooltip-id="supabase-icon" /> },
-      { id: 4, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
       {
-        id: 5,
-        logo: <SiStyledcomponents data-tooltip-id="styled-components-icon" />,
+        id: "React",
+        logo: (
+          <SiReact className="mr-4 inline -translate-y-0.5 text-2xl text-[#61DAFB]" />
+        ),
       },
-      { id: 6, logo: <SiVite data-tooltip-id="vite-icon" /> },
+      {
+        id: "Redux",
+        logo: (
+          <SiRedux className="mr-4 inline -translate-y-0.5 text-2xl text-[#764ABC]" />
+        ),
+      },
+
+      {
+        id: "Supabase",
+        logo: (
+          <SiSupabase className="mr-4 inline -translate-y-0.5 text-2xl text-[#3FCF8E]" />
+        ),
+      },
+      {
+        id: "JavaScript",
+        logo: (
+          <SiJavascript className="mr-4 inline -translate-y-0.5 text-2xl text-[#F7DF1E]" />
+        ),
+      },
+      {
+        id: "styled-components",
+        logo: (
+          <SiStyledcomponents className="mr-4 inline -translate-y-0.5 text-2xl text-[#DB7093]" />
+        ),
+      },
+      {
+        id: "Vite",
+        logo: (
+          <SiVite className="mr-4 inline -translate-y-0.5 text-2xl text-[#646CFF]" />
+        ),
+      },
     ],
     url1: "https://ollys-closet.netlify.app",
     url2: "https://github.com/ok-olly/olly-closet",
@@ -56,16 +91,36 @@ const work = [
   },
   {
     id: "todolist",
-    title: "To-Do List ↗",
+    title: "To-Do List",
     desc1: "Web App",
     desc2:
-      "자바스크립트만으로 만들었던 투두리스트 앱을 리액트로 다시 만들어봤습니다. 상단에서 날짜와 시간을 확인할 수 있습니다. 목록 작성은 물론 수정, 삭제 및 체크 표시가 가능하며 로컬 스토리지를 사용하여 로그아웃하기 전까지는 작성한 내용이 유지됩니다. 사용자의 위치에 따라 날씨 정보가 제공되고 화면을 새로 고칠 때마다 새로운 명언을 볼 수 있습니다.",
+      "JavaScript만으로 만들었던 투두리스트 앱을 React로 다시 만들어봤습니다. 상단에서 날짜와 시간을 확인할 수 있습니다. 목록 작성은 물론 수정, 삭제 및 체크 표시가 가능하며 로컬 스토리지를 사용하여 로그아웃하기 전까지는 작성한 내용이 유지됩니다. 사용자의 위치에 따라 날씨 정보가 제공되고 화면을 새로 고칠 때마다 새로운 명언을 확인할 수 있습니다.",
     img: ["/img/todolist/desktop01.png", "/img/todolist/desktop02.png"],
     tool: [
-      { id: 1, logo: <SiReact data-tooltip-id="react-icon" /> },
-      { id: 2, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
-      { id: 3, logo: <SiTailwindcss data-tooltip-id="tailwind-icon" /> },
-      { id: 4, logo: <SiVite data-tooltip-id="vite-icon" /> },
+      {
+        id: "React",
+        logo: (
+          <SiReact className="mr-4 inline -translate-y-0.5 text-2xl text-[#61DAFB]" />
+        ),
+      },
+      {
+        id: "JavaScript",
+        logo: (
+          <SiJavascript className="mr-4 inline -translate-y-0.5 text-2xl text-[#F7DF1E]" />
+        ),
+      },
+      {
+        id: "Tailwind CSS",
+        logo: (
+          <SiTailwindcss className="mr-4 inline -translate-y-0.5 text-2xl text-[#06B6D4]" />
+        ),
+      },
+      {
+        id: "Vite",
+        logo: (
+          <SiVite className="mr-4 inline -translate-y-0.5 text-2xl text-[#646CFF]" />
+        ),
+      },
     ],
     url1: "https://teenytiny-todolist.netlify.app",
     url2: "https://github.com/ok-olly/todolist",
@@ -77,16 +132,37 @@ const work = [
   },
   {
     id: "singstreet",
-    title: "Sing Street ↗",
+    title: "Sing Street",
     desc1: "Movie Filming Location Map (Responsive)",
     desc2:
-      "Leaflet과 JavaScript를 활용하여 만든 지도 앱입니다. 제가 좋아하는 영화 Sing Street의 촬영지를 담고 있습니다. 방문한 장소는 visited 버튼을 클릭하여 지도에 표시할 수 있습니다. 장소를 방문할 때마다 방문율을 나타내는 프로그레스 바가 추가될 예정이며 추후 다른 영화 버전도 만나보실 수 있습니다 😊",
-    img: ["/img/singsteet/desktop01.png", "/img/singsteet/mobile.png"],
+      "Leaflet과 JavaScript를 활용하여 만든 지도 앱입니다. 제가 좋아하는 영화 Sing Street의 촬영지를 담고 있습니다. 방문한 장소는 visited 버튼을 클릭하여 지도에 표시할 수 있습니다. 다른 영화 정보와 기능을 추가하여 모바일 앱으로 만들어볼 예정입니다.",
+    img: ["/img/singstreet/desktop01.png", "/img/singstreet/mobile.png"],
     tool: [
-      { id: 1, logo: <SiJavascript data-tooltip-id="javascript-icon" /> },
-      { id: 2, logo: <SiLeaflet data-tooltip-id="leaflet-icon" /> },
-      { id: 3, logo: <SiHtml5 data-tooltip-id="html-icon" /> },
-      { id: 4, logo: <SiSass data-tooltip-id="sass-icon" /> },
+      {
+        id: "JavaScript",
+        logo: (
+          <SiJavascript className="mr-4 inline -translate-y-0.5 text-2xl text-[#F7DF1E]" />
+        ),
+      },
+      {
+        id: "Leaflet",
+        logo: (
+          <SiLeaflet className="mr-4 inline -translate-y-0.5 text-2xl text-[#199900]" />
+        ),
+      },
+
+      {
+        id: "Sass",
+        logo: (
+          <SiSass className="mr-4 inline -translate-y-0.5 text-2xl text-[#CC6699]" />
+        ),
+      },
+      {
+        id: "HTML5",
+        logo: (
+          <SiHtml5 className="mr-4 inline -translate-y-0.5 text-2xl text-[#E34F26]" />
+        ),
+      },
     ],
     url1: "https://singstreet-filming-locations.netlify.app",
     url2: "https://github.com/ok-olly/sing-street",
@@ -104,51 +180,292 @@ function WorkDetail() {
 
   const [data] = work.filter((project) => project.id === param.id);
 
+  const navigate = useNavigate();
+
+  const refContact = useRef(null);
+
   return (
     <>
-      <div className="rounded-xl bg-neutral-50/50 p-5 dark:bg-neutral-950/50 md:p-7">
-        <div className="mx-auto mb-8 w-72 md:mb-7 md:w-[500px] lg:w-[600px]">
+      <header className="border-b-[1px] border-black/10 dark:border-white/50 dark:text-white/90">
+        <nav className="flex items-center justify-between px-6 py-4 lg:px-12 3xl:px-16">
+          <ul className="mobile-h6-small-regular flex items-center gap-6">
+            <li
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "home",
+                  },
+                })
+              }
+              className="cursor-pointer text-2xl pointerhover:hover:scale-x-105"
+            >
+              😇
+            </li>
+            <li
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "about",
+                  },
+                })
+              }
+            >
+              About Me
+            </li>
+            <li
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() =>
+                navigate("/", {
+                  state: {
+                    location: "project",
+                  },
+                })
+              }
+            >
+              My Projects
+            </li>
+            <li
+              className="hidden cursor-pointer sm:inline-block pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+              onClick={() =>
+                refContact.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Contact
+            </li>
+          </ul>
+          <ul className="flex items-center gap-6">
+            <li>
+              <ThemeSwitcher />
+            </li>
+            <li className="mobile-h6-small hidden text-primary dark:text-darkPrimary xl:inline-block">
+              olivia.jeongok.lee@gmail.com
+            </li>
+            <li
+              className="hidden xl:inline-block"
+              onClick={() =>
+                window.open(
+                  "https://github.com/ok-olly",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiGithub className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+            </li>
+            <li
+              className="hidden xl:inline-block"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/olivia-jeongok-lee",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiLinkedin className="cursor-pointer  pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div className="px-6 py-16 dark:text-white/90 sm:px-12 lg:p-24">
+        <div className="w-full">
           <SimpleSlider image={data.img} />
         </div>
 
-        <div className="w-72 md:w-[500px] lg:w-[600px]">
-          <div className="mb-5 flex items-center justify-between">
-            <Link to={data.url1} data-tooltip-id="my-tooltip-1">
-              <Heading>{data.title}</Heading>
-            </Link>
-            <Link to={data.url2}>
-              <SiGithub className="text-2xl" data-tooltip-id="my-tooltip-2" />
-            </Link>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <div className="md:flex md:items-center md:justify-between">
-              <span className="text-sm">{data.desc1}</span>
-
-              <div className="flex gap-2">
-                {data.tool.map((t) => (
-                  <span key={t.id}>{t.logo}</span>
-                ))}
-              </div>
+        <div className="flex flex-col gap-12 pt-16 lg:gap-16 lg:pt-32 xl:flex-row">
+          <div className="xl:w-1/2">
+            <div>
+              <h1 className="mobile-h3-bold mb-6 lg:mb-12">{data.title}</h1>
+              <p className="indent-2">{data.desc2}</p>
             </div>
 
-            <div className="h-60 overflow-scroll">
-              <div className="tracking-wide">{data.desc2}</div>
+            <div className="mt-12 hidden gap-6 xl:flex xl:flex-col">
+              <div className="flex flex-col items-start gap-6 2xl:flex-row">
+                <PrimaryBtn
+                  isStretch={false}
+                  handleClick={() =>
+                    window.open(data.url1, "_blank", "noopener, noreferrer")
+                  }
+                >
+                  <span>🛍️</span>
+                  <span>View project</span>
+                </PrimaryBtn>
 
-              <h3 className="my-3 text-neutral-950 underline decoration-double underline-offset-4 dark:text-neutral-200">
-                Key Features
-              </h3>
-              <ul className="list-outside list-disc pl-4">
+                <SecondaryBtn
+                  handleClick={() =>
+                    window.open(data.url2, "_blank", "noopener, noreferrer")
+                  }
+                >
+                  <SiGithub />
+                  <span>Visit github</span>
+                </SecondaryBtn>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => navigate(-1)}
+                className="self-start text-black/50 dark:text-white/90 pointerhover:hover:underline"
+              >
+                <IoArrowBackOutline className="mr-2 inline -translate-y-0.5" />
+                <span>Go back</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="xl:w-1/2">
+            <div className="mb-12">
+              <h5 className="mobile-h5 mb-6">Key Features</h5>
+              <ul className="list-outside list-disc pl-6">
                 {data.features.map((el, i) => (
                   <li key={i}>{el}</li>
                 ))}
               </ul>
             </div>
+
+            <div>
+              <h5 className="mobile-h5 mb-6">Tools</h5>
+              <div className="flex flex-wrap gap-2 lg:gap-4">
+                {data.tool.map((t) => (
+                  <div
+                    key={t.id}
+                    className="inline-block rounded-lg bg-black/10 px-4 py-2 dark:bg-white/10"
+                  >
+                    {t.logo}
+                    <span>{t.id}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:px-48 xl:hidden">
+            <div className="mb-6 flex flex-col gap-6">
+              <PrimaryBtn
+                isStretch={true}
+                handleClick={() =>
+                  window.open(data.url1, "_blank", "noopener, noreferrer")
+                }
+              >
+                <span>🛍️</span>
+                <span>View project</span>
+              </PrimaryBtn>
+
+              <SecondaryBtn
+                handleClick={() =>
+                  window.open(data.url2, "_blank", "noopener, noreferrer")
+                }
+              >
+                <SiGithub />
+                <span>Visit github</span>
+              </SecondaryBtn>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="self-start text-black/50 dark:text-white/90 pointerhover:hover:underline"
+            >
+              <IoArrowBackOutline className="mr-2 inline -translate-y-0.5" />
+              <span>Go back</span>
+            </button>
           </div>
         </div>
       </div>
 
-      <Tooltips url1={data.url1} url2={data.url2} />
+      <footer>
+        <Contact ref={refContact} />
+
+        <div className="flex flex-col gap-3 px-6 py-8 dark:text-white/90 md:flex-row md:flex-wrap md:justify-between lg:px-12 3xl:px-16">
+          <nav>
+            <ul className="mobile-h6-small-regular flex justify-between sm:justify-start sm:gap-6 ">
+              <li
+                className="cursor-pointer pointerhover:hover:scale-x-105"
+                onClick={() =>
+                  navigate("/", {
+                    state: {
+                      location: "home",
+                    },
+                  })
+                }
+              >
+                😇
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() =>
+                  navigate("/", {
+                    state: {
+                      location: "about",
+                    },
+                  })
+                }
+              >
+                About Me
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() =>
+                  navigate("/", {
+                    state: {
+                      location: "project",
+                    },
+                  })
+                }
+              >
+                My Projects
+              </li>
+              <li
+                className="cursor-pointer pointerhover:hover:font-semibold pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary"
+                onClick={() =>
+                  refContact.current?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Contact
+              </li>
+            </ul>
+          </nav>
+
+          <div className="flex flex-wrap">
+            <span className="mr-4">&copy; Copyright Olivia Lee 2024.</span>
+            <span>All rights reserved.</span>
+          </div>
+
+          <div className="flex flex-wrap">
+            <span className="mr-4">Privacy Policy</span>
+            <span>Terms &amp; Conditions</span>
+          </div>
+
+          <ul className="flex items-center gap-6 lg:gap-8">
+            <li className="mobile-h6-small text-primary dark:text-darkPrimary">
+              olivia.jeongok.lee@gmail.com
+            </li>
+            <li
+              onClick={() =>
+                window.open(
+                  "https://github.com/ok-olly",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiGithub className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+            </li>
+            <li
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/olivia-jeongok-lee",
+                  "_blank",
+                  "noopener, noreferrer",
+                )
+              }
+            >
+              <SiLinkedin className="cursor-pointer pointerhover:hover:text-primary pointerhover:dark:hover:text-darkPrimary" />
+            </li>
+          </ul>
+        </div>
+      </footer>
     </>
   );
 }
