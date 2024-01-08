@@ -432,10 +432,10 @@ function WorkDetail() {
             <span>All rights reserved.</span>
           </div>
 
-          <div className="flex flex-wrap">
+          {/* <div className="flex flex-wrap">
             <span className="mr-4">Privacy Policy</span>
             <span>Terms &amp; Conditions</span>
-          </div>
+          </div> */}
 
           <ul className="flex items-center gap-6 lg:gap-8">
             <li className="mobile-h6-small text-primary dark:text-darkPrimary">

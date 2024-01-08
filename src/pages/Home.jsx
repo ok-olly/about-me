@@ -175,9 +175,10 @@ function Home() {
                 <p>
                   안녕하세요. 저는 React를 사용하는 프론트엔드 개발자
                   이정옥입니다. 만들고 싶은 것을 만들고 있어요. 최근에는 UI
-                  디자인을 공부하며 Figma로 보고 계신 이 웹사이트를 새로
-                  디자인했습니다. 그리고 모바일 앱에 관심이 생겨 React Native를
-                  공부하고 있습니다.
+                  디자인에 관심이 생겨 Figma를 배우면서, 보고 계신 이 웹사이트를
+                  새로 디자인했습니다. 앱 개발도 재미있을 것 같아 공부해보고
+                  싶고 최종적으로는 아름답고 이용하기 편리한 서비스를 만드는
+                  것이 목표입니다.
                 </p>
                 <p>
                   협업은 언제나 환영입니다! 아래 폼으로 메세지를 남겨주세요 😊
@@ -366,10 +367,10 @@ function Home() {
             <span>All rights reserved.</span>
           </div>
 
-          <div className="flex flex-wrap">
+          {/* <div className="flex flex-wrap">
             <span className="mr-4">Privacy Policy</span>
             <span>Terms &amp; Conditions</span>
-          </div>
+          </div> */}
 
           <ul className="flex items-center gap-6 lg:gap-8">
             <li className="mobile-h6-small text-primary dark:text-darkPrimary">
