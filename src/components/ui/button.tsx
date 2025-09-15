@@ -1,14 +1,14 @@
 import { ReactNode } from "react";
 
-type buttonProps = {
+type ButtonProps = {
 	children: ReactNode;
 };
 
-export function Button(props: buttonProps) {
+export function Button(props: ButtonProps) {
 	const { children } = props;
 
 	return (
-		<button className="group bg-primary hover:bg-primary/90 text-background inline-flex cursor-pointer items-center gap-4 rounded-md px-4 py-2 shadow-xs">
+		<button className="group bg-foreground hover:bg-foreground/90 text-primary inline-flex cursor-pointer items-center gap-4 rounded-md px-4 py-2 shadow-xs">
 			{children}
 		</button>
 	);

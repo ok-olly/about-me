@@ -1,23 +1,17 @@
-import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 type BadgeProps = {
-	className?: string;
 	children: ReactNode;
+	icon: ReactNode;
 };
 
 export function Badge(props: BadgeProps) {
-	const { className, children } = props;
+	const { children, icon } = props;
 
 	return (
-		<span
-			data-slot="badge"
-			className={cn(
-				"bg-muted/30 text-primary inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap",
-				className
-			)}
-		>
-			{children}
-		</span>
+		<div className="bg-foreground/20 hover:bg-foreground/30 flex h-26 w-22 flex-col items-center justify-center rounded-2xl p-4">
+			{icon}
+			<span className="mt-2 text-xs">{children}</span>
+		</div>
 	);
 }

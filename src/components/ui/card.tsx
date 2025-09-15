@@ -12,7 +12,7 @@ export function Card(props: CardProps) {
 	return (
 		<div
 			data-slot="card"
-			className={cn("bg-secondary flex flex-col gap-6 rounded-xl border py-6 shadow-sm", className)}
+			className={cn("bg-foreground/10 flex flex-col gap-6 rounded-xl border py-6 shadow-sm", className)}
 		>
 			{children}
 		</div>

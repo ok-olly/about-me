@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
+import { ReactNode } from "react";
 
 const montserrat = Montserrat({
 	variable: "--font-montserrat",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
 	children
 }: Readonly<{
-	children: React.ReactNode;
+	children: ReactNode;
 }>) {
 	return (
 		<html lang="en">
