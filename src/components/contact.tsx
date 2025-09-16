@@ -4,7 +4,7 @@ import { Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
 	return (
-		<section className="pt-20">
+		<section className="py-20 sm:py-40">
 			<div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 				<div className="mb-16 text-center">
 					<h2 className="mb-4 font-serif text-3xl font-bold sm:text-4xl">Let&apos;s Work Together</h2>
@@ -33,7 +33,7 @@ export default function Contact() {
 						<div className="grid grid-cols-2 gap-4">
 							<a
 								className="group bg-foreground hover:bg-foreground/90 text-primary inline-flex cursor-pointer items-center justify-center gap-4 rounded-md px-4 py-2 font-sans shadow-xs"
-								href="https://github.com"
+								href="https://github.com/ok-olly"
 								rel="noopener noreferrer"
 								target="_blank"
 							>

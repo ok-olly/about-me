@@ -28,10 +28,10 @@ export default function About() {
 				<div
 					className={`transform transition-all delay-500 duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
 				>
-					<span className="text-foreground/60 mt-4 mb-8 inline-block font-sans">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas pariatur voluptatum exercitationem fugit
-						accusamus consequuntur corrupti! Quibusdam obcaecati saepe at, tenetur asperiores quos et voluptatum
-						adipisci veritatis alias. Eveniet, officiis.
+					<span className="text-foreground/80 mt-4 mb-8 inline-block font-sans">
+						<span className="font-bold">Frontend Developer</span> with hands-on experience in React, Redux, and modern
+						web technologies. I focus on building clean, maintainable user interfaces and have nearly 2 years of
+						experience collaborating with international teams.
 					</span>
 				</div>
 				<div
@@ -39,7 +39,7 @@ export default function About() {
 				>
 					<a
 						className="group bg-foreground hover:bg-foreground/90 text-primary inline-flex cursor-pointer items-center gap-4 rounded-md px-4 py-2 font-sans shadow-xs"
-						href="#"
+						href="https://drive.google.com/file/d/1vGMTDDEl3_ia2O_IJYfGtOaGlOUetVbg/view?usp=share_link"
 						target="_blank"
 						rel="noopener noreferrer"
 					>

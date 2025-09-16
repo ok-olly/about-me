@@ -19,8 +19,11 @@ import {
 
 export default function Skill() {
 	return (
-		<section className="py-20">
-			<h2 className="mb-16 text-center text-3xl font-bold sm:text-4xl">Skills</h2>
+		<section className="py-20 sm:py-40">
+			<div className="mb-16 text-center">
+				<h2 className="mb-4 text-3xl font-bold sm:text-4xl">Skills</h2>
+				<p className="text-foreground/60 mx-auto max-w-2xl font-sans text-lg">Learning, Building, Evolving</p>
+			</div>
 			<div className="flex flex-wrap justify-center gap-4">
 				<Badge icon={<SiHtml5 color="default" size={32} />}>HTML5</Badge>
 				<Badge icon={<SiCss color="default" size={32} />}>CSS</Badge>
