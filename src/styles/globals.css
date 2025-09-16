@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  /* TODO: light mode color */
+  --background: var(--color-neutral-800);
+  --foreground: var(--color-neutral-50);
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-montserrat: "Montserrat", serif;
+  --primary: var(--color-neutral-950);
+  --muted: var(--color-neutral-300);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-neutral-800);
+    --foreground: var(--color-neutral-50);
+    --primary: var(--color-neutral-950);
+    --muted: var(--color-neutral-300);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-open-sans);
+  --font-serif: var(--font-montserrat);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@theme inline {
+  --animate-first: moveVertical 30s ease infinite;
+  --animate-second: moveInCircle 20s reverse infinite;
+  --animate-third: moveInCircle 40s linear infinite;
+  --animate-fourth: moveHorizontal 40s ease infinite;
+  --animate-fifth: moveInCircle 20s ease infinite;
+
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+
+  @keyframes moveInCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+}
