@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { ReactNode } from "react";
@@ -26,6 +27,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${montserrat.variable} ${openSans.variable} antialiased`}>{children}</body>
+			 <Analytics />
 		</html>
 	);
 }
