@@ -39,7 +39,7 @@ export default function About() {
 				>
 					<a
 						className="group bg-foreground hover:bg-foreground/90 text-primary inline-flex cursor-pointer items-center gap-4 rounded-md px-4 py-2 font-sans shadow-xs"
-						href="https://drive.google.com/file/d/1vGMTDDEl3_ia2O_IJYfGtOaGlOUetVbg/view?usp=share_link"
+						href="https://drive.google.com/file/d/1l5d6EaikLvGUQ78OVS_xQSgRdTkM5-ZS/view?usp=share_link"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
