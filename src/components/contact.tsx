@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { SiGithub } from "@icons-pack/react-simple-icons";
-import { Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
 	return (
@@ -37,7 +36,7 @@ export default function Contact() {
 								rel="noopener noreferrer"
 								target="_blank"
 							>
-								<SiGithub className="h-5 w-5 transition-transform group-hover:scale-110" color="#181717" size={32} />
+								<Github className="h-5 w-5 transition-transform group-hover:scale-110" color="#181717" size={32} />
 							</a>
 							<a
 								className="group bg-foreground hover:bg-foreground/90 text-primary inline-flex cursor-pointer items-center justify-center gap-4 rounded-md px-4 py-2 font-sans shadow-xs"
